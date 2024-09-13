@@ -7,14 +7,19 @@
 
 import SwiftUI
 struct ForYouView: View {
-    @State private var recommendationSearchText: String = ""
+    @StateObject private var searchDataModel = SearchDataModel()
     var body: some View {
         NavigationStack {
            VStack {
-               IngredientCollections()
+               IngredientCollections(search: $searchDataModel.searchText)
            }
            .navigationTitle("For You")
-        }.searchable(text: $recommendationSearchText)
+        }.searchable(text: $searchDataModel.searchText)
+        .environmentObject(searchDataModel)
+    }
+    
+    private func searchIngredient(newValue: String) {
+        
     }
 }
 

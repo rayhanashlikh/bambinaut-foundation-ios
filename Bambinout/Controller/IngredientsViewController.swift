@@ -3,10 +3,15 @@ import UIKit
 import SwiftUI
 
 class IngredientsViewController: UIViewController {
-    
+    private var searchText: String = "" {
+        didSet {
+            filterData(name: searchText)
+        }
+    }
     private let margin: CGFloat = 16
     
     private var data: [IngredientData] = []
+    private var filteredData: [IngredientData] = []
     
     private lazy var ingredientView: UICollectionView = {
         
@@ -38,6 +43,7 @@ class IngredientsViewController: UIViewController {
                 for_weight_status: -1
             )
             data.append(newData)
+            filteredData.append(newData)
         }
         
         self.ingredientView.dataSource = self
@@ -57,11 +63,24 @@ class IngredientsViewController: UIViewController {
             ingredientView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
+    
+    func filterData(name: String) {
+    if name.isEmpty {
+            filteredData = data
+        } else {
+            filteredData = data.filter { $0.name.lowercased().contains(name.lowercased()) }
+        }
+        ingredientView.reloadData()
+    }
+    
+    func updateSearchText(_ searchText: String) {
+        self.searchText = searchText
+    }
 }
 
 extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.data.count
+        self.filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,7 +89,7 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
             IngredientsCollectionViewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
-        let ingredient = self.data[indexPath.row]
+        let ingredient = self.filteredData[indexPath.row]
         
         cell.layer.cornerRadius = 20.0
         cell.clipsToBounds = true
@@ -82,7 +101,7 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             // Get the selected ingredient
-            let ingredient = self.data[indexPath.row]
+            let ingredient = self.filteredData[indexPath.row]
             
             // Create the SwiftUI view with the selected ingredient
             let detailView = IngredientDetailView(ingredient: ingredient)
