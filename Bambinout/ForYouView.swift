@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-
 struct ForYouView: View {
+    @State private var recommendationSearchText: String = ""
     var body: some View {
-        Text("For You")
-                   .font(.largeTitle)
-                   .padding()
+        NavigationStack {
+           VStack {
+               IngredientCollections()
+           }
+           .navigationTitle("For You")
+        }.searchable(text: $recommendationSearchText)
     }
 }
 
