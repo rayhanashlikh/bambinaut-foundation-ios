@@ -1,8 +1,12 @@
-**/*.xcodeproj/xcuserdata/
-**/*.xcworkspace/xcuserdata/
-**/.swiftpm/xcode/xcuserdata/
-**/*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
-**/*.xcworkspace/xcshareddata/*.xccheckout
-**/*.xcworkspace/xcshareddata/*.xcscmblueprint
-**/*.playground/**/timeline.xctimeline
-.idea/
+# Xcode
+.DS_Store
+*.xcuserstate
+*.xcuserdata
+*.xcuserstate
+*.xcscheme
+*.xcschemes
+*.xccheckout
+*.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
