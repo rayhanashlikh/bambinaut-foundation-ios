@@ -11,7 +11,7 @@ import SwiftUI
 struct bambinaut_foundation_iosApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            IngredientsView()
         }
     }
 }
