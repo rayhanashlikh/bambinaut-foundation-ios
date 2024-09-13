@@ -32,18 +32,58 @@ class IngredientsViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         
-        for _ in 0...25 {
-            let newData = IngredientData(
+        for _ in 0...5 {
+            let newData1 = IngredientData(
                 imageName: "tomato",
                 name: "Tomato",
-                description: "Ini adalah tomat",
+                description: "This is Tomato",
                 allergy_id: 1,
                 min_months: 6,
                 max_months: 8,
                 for_weight_status: -1
             )
-            data.append(newData)
-            filteredData.append(newData)
+            let newData2 = IngredientData(
+                imageName: "avocado",
+                name: "Avocado",
+                description: "This is avocado",
+                allergy_id: 1,
+                min_months: 6,
+                max_months: 8,
+                for_weight_status: -1
+            )
+            let newData3 = IngredientData(
+                imageName: "water",
+                name: "Water",
+                description: "This is water",
+                allergy_id: 1,
+                min_months: 6,
+                max_months: 8,
+                for_weight_status: -1
+            )
+            let newData4 = IngredientData(
+                imageName: "banana",
+                name: "Banana",
+                description: "This is banana",
+                allergy_id: 1,
+                min_months: 6,
+                max_months: 8,
+                for_weight_status: -1
+            )
+            let newData5 = IngredientData(
+                imageName: "chicken",
+                name: "Chicken",
+                description: "This is chicken",
+                allergy_id: 1,
+                min_months: 6,
+                max_months: 8,
+                for_weight_status: -1
+            )
+            data.append(newData1)
+            data.append(newData2)
+            data.append(newData3)
+            data.append(newData4)
+            data.append(newData5)
+            filteredData = data
         }
         
         self.ingredientView.dataSource = self
