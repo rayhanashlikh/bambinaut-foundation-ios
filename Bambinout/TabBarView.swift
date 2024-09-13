@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TabBarView: View {
     var body: some View {
-        TabView {
             TabView {
                 IngredientsView()
                     .tabItem {
@@ -27,7 +26,7 @@ struct TabBarView: View {
                         Text("Tracker")
                     }
             }
-        }
+        
     }
 }
 
