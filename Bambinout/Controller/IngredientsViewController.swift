@@ -1,6 +1,6 @@
 
 import UIKit
-
+import SwiftUI
 
 class IngredientsViewController: UIViewController {
     
@@ -28,7 +28,7 @@ class IngredientsViewController: UIViewController {
         self.setupUI()
         
         for _ in 0...25 {
-            var newData = IngredientData(
+            let newData = IngredientData(
                 imageName: "tomato",
                 name: "Tomato",
                 description: "Ini adalah tomat",
@@ -70,16 +70,29 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
             IngredientsCollectionViewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
+        let ingredient = self.data[indexPath.row]
         
         cell.layer.cornerRadius = 20.0
         cell.clipsToBounds = true
         
-        let curr = self.data[indexPath.row]
-        
-        cell.configure(with: curr)
+        cell.configure(with: ingredient)
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            // Get the selected ingredient
+            let ingredient = self.data[indexPath.row]
+            
+            // Create the SwiftUI view with the selected ingredient
+            let detailView = IngredientDetailView(ingredient: ingredient)
+            
+            // Create a UIHostingController with the SwiftUI view
+            let hostingController = UIHostingController(rootView: detailView)
+            
+            // Push the hostingController onto the navigation stack
+            self.navigationController?.pushViewController(hostingController, animated: true)
+        }
 }
 
 extension IngredientsViewController: UICollectionViewDelegateFlowLayout {

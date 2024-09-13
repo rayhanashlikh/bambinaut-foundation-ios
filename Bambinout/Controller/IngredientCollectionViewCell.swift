@@ -19,7 +19,7 @@ class IngredientsCollectionViewCell: UICollectionViewCell {
         iv.clipsToBounds = true
         return iv
     }()
-    
+        
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)

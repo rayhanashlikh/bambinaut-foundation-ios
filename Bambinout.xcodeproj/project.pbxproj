@@ -10,6 +10,8 @@
 		0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* IngredientCollections.swift */; };
 		0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */; };
 		0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */; };
+		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
+		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088792C92A7DF00047A37 /* BambinoutApp.swift */; };
 		04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0887B2C92A7DF00047A37 /* ContentView.swift */; };
 		04B0887E2C92A7E100047A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B0887D2C92A7E100047A37 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		0430EEED2C9441C400155C8A /* IngredientCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollections.swift; sourceTree = "<group>"; };
 		0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
 		0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
+		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		04B088762C92A7DF00047A37 /* Bambinout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bambinout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B088792C92A7DF00047A37 /* BambinoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambinoutApp.swift; sourceTree = "<group>"; };
 		04B0887B2C92A7DF00047A37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			children = (
 				0430EEEC2C94418600155C8A /* Controller */,
 				04B088792C92A7DF00047A37 /* BambinoutApp.swift */,
+				0430EEF32C94433000155C8A /* IngredientDetailView.swift */,
 				04B0887B2C92A7DF00047A37 /* ContentView.swift */,
 				04B0887D2C92A7E100047A37 /* Assets.xcassets */,
 				04B0887F2C92A7E100047A37 /* Preview Content */,
@@ -133,6 +138,7 @@
 				04B088C32C940F4200047A37 /* ForYouView.swift */,
 				04B088C52C940F6D00047A37 /* TrackerView.swift */,
 				04B088C72C94100800047A37 /* TabBarView.swift */,
+				0430EEF52C9445D300155C8A /* Storyboard.storyboard */,
 			);
 			path = Bambinout;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			files = (
 				04B088812C92A7E100047A37 /* Preview Assets.xcassets in Resources */,
 				04B0887E2C92A7E100047A37 /* Assets.xcassets in Resources */,
+				0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +308,7 @@
 				0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */,
 				04B088C02C9408C800047A37 /* TampilanData.swift in Sources */,
 				04B088A42C93C79400047A37 /* Data.swift in Sources */,
+				0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */,
 				0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
 			);
