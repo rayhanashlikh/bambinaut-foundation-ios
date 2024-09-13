@@ -4,11 +4,15 @@ import UIKit
 
 class IngredientsViewController: UIViewController {
     
-    private var data: [UIImage] = []
+    private let margin: CGFloat = 16
     
-    private let ingredientView: UICollectionView = {
+    private var data: [IngredientData] = []
+    
+    private lazy var ingredientView: UICollectionView = {
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: margin, left:  margin, bottom:  margin, right:  margin)
         
         let ingredientView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         ingredientView.backgroundColor = .systemBackground
@@ -24,21 +28,16 @@ class IngredientsViewController: UIViewController {
         self.setupUI()
         
         for _ in 0...25 {
-//            var newData = IngredientData(
-//                image: UIImage(named:"tomato")!,
-//                name: "Tomat",
-//                description: "Ini adalah tomat",
-//                allergy_id: 1,
-//                min_months: 6,
-//                max_months: 8,
-//                for_weight_status: -1
-//            )
-//            data.append(newData)
-            data.append(UIImage(named: "avocado")!)
-            data.append(UIImage(named: "avocado")!)
-            data.append(UIImage(named: "avocado")!)
-            data.append(UIImage(named: "avocado")!)
-            data.append(UIImage(named: "avocado")!)
+            var newData = IngredientData(
+                imageName: "tomato",
+                name: "Tomato",
+                description: "Ini adalah tomat",
+                allergy_id: 1,
+                min_months: 6,
+                max_months: 8,
+                for_weight_status: -1
+            )
+            data.append(newData)
         }
         
         self.ingredientView.dataSource = self
@@ -72,6 +71,9 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
         
+        cell.layer.cornerRadius = 20.0
+        cell.clipsToBounds = true
+        
         let curr = self.data[indexPath.row]
         
         cell.configure(with: curr)
@@ -81,7 +83,16 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
 }
 
 extension IngredientsViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        
+        // Calculate the width of each item
+        let totalSpacing = (collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing * 1 // 1 space between items
+        let contentWidth = collectionView.bounds.width
+        let itemWidth = (contentWidth - (margin * 2) - totalSpacing) / 2.0
+        let itemHeight = itemWidth + 40
+        // Set a height for the items, or calculate dynamically if needed
+        
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }

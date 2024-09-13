@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		0430EEDB2C942C0D00155C8A /* IngredientCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EED72C942C0D00155C8A /* IngredientCollections.swift */; };
 		0430EEDC2C942C0D00155C8A /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EED82C942C0D00155C8A /* IngredientCollectionViewCell.swift */; };
-		0430EEDD2C942C0D00155C8A /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EED92C942C0D00155C8A /* IngredientsViewController.swift */; };
-		0430EEDF2C943F0200155C8A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEDE2C943F0200155C8A /* File.swift */; };
+		0430EEE32C943FAD00155C8A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEE22C943FAD00155C8A /* File.swift */; };
+		0430EEEB2C94401900155C8A /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEA2C94401900155C8A /* IngredientsViewController.swift */; };
 		04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088792C92A7DF00047A37 /* BambinoutApp.swift */; };
 		04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0887B2C92A7DF00047A37 /* ContentView.swift */; };
 		04B0887E2C92A7E100047A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B0887D2C92A7E100047A37 /* Assets.xcassets */; };
@@ -46,8 +46,8 @@
 /* Begin PBXFileReference section */
 		0430EED72C942C0D00155C8A /* IngredientCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollections.swift; sourceTree = "<group>"; };
 		0430EED82C942C0D00155C8A /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
-		0430EED92C942C0D00155C8A /* IngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
-		0430EEDE2C943F0200155C8A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		0430EEE22C943FAD00155C8A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = Bambinout/File.swift; sourceTree = SOURCE_ROOT; };
+		0430EEEA2C94401900155C8A /* IngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IngredientsViewController.swift; path = ../../.Trash/IngredientsViewController.swift; sourceTree = "<group>"; };
 		04B088762C92A7DF00047A37 /* Bambinout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bambinout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B088792C92A7DF00047A37 /* BambinoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambinoutApp.swift; sourceTree = "<group>"; };
 		04B0887B2C92A7DF00047A37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 			children = (
 				0430EED72C942C0D00155C8A /* IngredientCollections.swift */,
 				0430EED82C942C0D00155C8A /* IngredientCollectionViewCell.swift */,
-				0430EED92C942C0D00155C8A /* IngredientsViewController.swift */,
-				0430EEDE2C943F0200155C8A /* File.swift */,
+				0430EEEA2C94401900155C8A /* IngredientsViewController.swift */,
+				0430EEE22C943FAD00155C8A /* File.swift */,
 			);
 			name = Controller;
 			path = ../../Controller;
@@ -296,15 +296,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0430EEEB2C94401900155C8A /* IngredientsViewController.swift in Sources */,
 				04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */,
-				0430EEDF2C943F0200155C8A /* File.swift in Sources */,
 				04B088C22C940EFD00047A37 /* IngredientsView.swift in Sources */,
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
-				0430EEDD2C942C0D00155C8A /* IngredientsViewController.swift in Sources */,
 				0430EEDC2C942C0D00155C8A /* IngredientCollectionViewCell.swift in Sources */,
 				04B088C02C9408C800047A37 /* TampilanData.swift in Sources */,
+				0430EEE32C943FAD00155C8A /* File.swift in Sources */,
 				04B088A42C93C79400047A37 /* Data.swift in Sources */,
 				0430EEDB2C942C0D00155C8A /* IngredientCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
