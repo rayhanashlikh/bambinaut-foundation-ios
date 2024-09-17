@@ -7,14 +7,33 @@
 
 import SwiftUI
 
+func getDate(date: String) -> Date? {
+    var dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    if let date = dateFormatter.date(from: date) {
+        return date
+    } else {
+        return nil
+    }
+}
+
 struct IngredientData {
-    let imageName: String
-    let name: String
-    let description: String
-    let allergy_id: Int?
-    let min_months: Int
-    let max_months: Int
-    let for_weight_status: Int
+    var imageName: String
+    var name: String
+    var description: String
+    var allergy_id: Int?
+    var min_months: Int
+    var max_months: Int
+    var for_weight_status: Int
+}
+
+struct BabyData {
+    var id: Int
+    var allergy_ids: [Int]
+    var latest_weight: Int
+    var latest_weight_date: Date?
+    var birth_date: Date?
 }
 
 struct AppColors {

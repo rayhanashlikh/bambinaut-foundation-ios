@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct IngredientCollections: UIViewControllerRepresentable {
-   @Binding var search: String
+    @Binding var search: String
     
     func makeUIViewController(context: Context) -> IngredientsViewController {
         return IngredientsViewController()
