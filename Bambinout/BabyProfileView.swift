@@ -9,7 +9,16 @@ import SwiftUI
 
 struct BabyProfileView: View {
     @State var babyName = ""
+    @State private var birthDate = Date()
+    
+    @State private var selectedGender: Gender = .male
+    enum Gender : String, CaseIterable, Identifiable {
+        case male, female
+        var id: Self { self }
+    }
+
     var body: some View {
+        
         VStack {
             NavigationStack {
                 Form {
@@ -21,11 +30,22 @@ struct BabyProfileView: View {
                     }
                     HStack {
                         Text("Gender")
-                        
+                        Spacer()
+                        VStack {
+                            Picker("Gender", selection: $selectedGender) {
+                                ForEach(Gender.allCases) { gender in
+                                    Text(gender.rawValue.capitalized)
+                                }
+                            }
+                        }
+                        .pickerStyle(.segmented).frame(width: 200, alignment: .trailing)
                     }
                     HStack {
                         Text("Birth Date")
-                        
+                        Spacer()
+                        DatePicker("", selection: $birthDate, displayedComponents: .date)
+                                                .labelsHidden()
+                                                .frame(width: 200, alignment: .trailing)
                     }
                     HStack {
                         NavigationLink (
@@ -36,7 +56,7 @@ struct BabyProfileView: View {
                         
                         
                     }
-                }
+                }.navigationTitle("Baby Profile").navigationBarTitleDisplayMode(.inline)
                 
             }
         }

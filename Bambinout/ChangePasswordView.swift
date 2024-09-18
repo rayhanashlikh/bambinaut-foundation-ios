@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct ChangePasswordView: View {
+    @State var userPassword = ""
+    @State var newPassword = ""
+    @State var confirmPassword = ""
     var body: some View {
-        Text("Change Password")
+        VStack {
+            NavigationStack {
+                Form {
+                    HStack {
+                        Text("Password")
+                        TextField(text: $userPassword, prompt: Text("Password")) {
+                            Text("Password")
+                        }.multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("New Password")
+                        TextField(text: $newPassword, prompt: Text("New Password")) {
+                            Text("New Password")
+                        }.multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text("Confirm Password")
+                        TextField(text: $confirmPassword, prompt: Text("Confirm Password")) {
+                            Text("Confirm Password")
+                        }.multilineTextAlignment(.trailing)
+                    }
+                    
+                }
+                .navigationTitle("Change Password").navigationBarTitleDisplayMode(.inline)
+            }
+        }
     }
 }
 

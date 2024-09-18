@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var userEmail = ""
     var body: some View {
-        Text("Account")
+        VStack {
+            NavigationStack {
+                Form {
+                    HStack {
+                        Text("Email")
+                        TextField(text: $userEmail, prompt: Text("User's Email")) {
+                            Text("Baby Name")
+                        }.multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        NavigationLink (
+                            destination : ChangePasswordView()
+                        ) {
+                            Text("Password")
+                        }
+                        
+                    }
+                    
+                }
+                .navigationTitle("Account").navigationBarTitleDisplayMode(.inline)
+            }
+        }
     }
 }
 
