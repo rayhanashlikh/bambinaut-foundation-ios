@@ -174,6 +174,24 @@ struct WeightRange {
     let max: Double
 }
 
+struct FoodMonthRange: Hashable {
+    let title : String
+    let min: Int?
+    let max: Int?
+}
+
+let categories :[FoodMonthRange] =  [
+    FoodMonthRange(title: "All", min: nil, max: nil),
+    FoodMonthRange(title: "6-8M", min: 6, max: 8),
+    FoodMonthRange(title: "8-10M", min: 8, max: 10),
+    FoodMonthRange(title: "10-12M", min: 10, max: 12)
+]
+
+func getFoodMonthCategories() -> [FoodMonthRange] {
+    return categories
+     
+}
+
 // Define the type alias for age to weight range dictionary
 typealias AgeWeightRanges = [String: WeightRange]
 

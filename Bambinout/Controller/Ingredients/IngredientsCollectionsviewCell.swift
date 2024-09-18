@@ -8,7 +8,7 @@
 //import SwiftUI
 import UIKit
 
-struct IngredientsCollectionsviewCell: UICollectionViewCell {
+class IngredientsCollectionsviewCell: UICollectionViewCell {
     static let identifier = "IngredientCollectionViewCell"
     
     private let myImageView: UIImageView = {

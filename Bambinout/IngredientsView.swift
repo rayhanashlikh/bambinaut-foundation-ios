@@ -3,15 +3,8 @@ import SwiftUI
 
 struct IngredientsView: View {
     @StateObject private var searchDataModel = SearchDataModel()
-    @State private var selectedCategory = "All"
-    let categories = ["All", "6-8 M", "8-10 M", "10-12 M"]
-    private var dummyBabyData = BabyDataModel(
-        id: 1,
-        allergy_ids: [1,3],
-        latest_weight: 6,
-        latest_weight_date: getDate(date: "2024-09-13"),
-        birth_date: getDate(date: "2024-02-03")
-    )
+    @State private var selectedCategory = FoodMonthRange(title: "All", min: nil, max: nil)
+    let categories = getFoodMonthCategories()
     var body: some View {
         ZStack{
             NavigationStack {
@@ -19,13 +12,14 @@ struct IngredientsView: View {
                     // Category Filter
                     Picker("Category", selection: $selectedCategory) {
                                        ForEach(categories, id: \.self) { category in
-                                           Text(category).tag(category)
+                                           Text(category.title).tag(category)
                                        }
                                    }
                                    .pickerStyle(SegmentedPickerStyle())
                                    .padding(.leading)
                                    .padding(.trailing)
-                    IngredientCollections(search: $searchDataModel.searchText)
+                    IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
+                    
                 }
                 .navigationTitle("Ingredients")
                 .navigationBarTitleDisplayMode(.large)

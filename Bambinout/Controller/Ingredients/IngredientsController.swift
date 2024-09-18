@@ -7,17 +7,22 @@
 import UIKit
 import SwiftUI
 
-struct IngredientsController: UIViewController {
+class IngredientsController: UIViewController {
     private var searchText: String = "" {
         didSet {
             filterData(name: searchText)
+        }
+    }
+    private var foodMonthData: FoodMonthRange{
+        didSet {
+            filterData(foodMonthData: foodMonthData)
         }
     }
     private let margin: CGFloat = 16
     
     private var data: [IngredientData] = []
     private var filteredData: [IngredientData] = []
-    private var babyData: BabyData;
+    //private var babyData: BabyData;
     
     private lazy var ingredientView: UICollectionView = {
         
@@ -35,8 +40,8 @@ struct IngredientsController: UIViewController {
     }()
     
     // Custom initializer
-    init(babyData: BabyData) {
-        self.babyData = babyData
+    init(foodMonthData: FoodMonthRange) {
+        self.foodMonthData = foodMonthData
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,13 +49,13 @@ struct IngredientsController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         
         data = getDummyIngredients(n: 5)
-        filterData(babyData: babyData)
+       // filterData(babyData: babyData)
         
         filteredData = data
         
@@ -82,30 +87,23 @@ struct IngredientsController: UIViewController {
         ingredientView.reloadData()
     }
     
-    func filterData(babyData: BabyData) {
+    func filterData(foodMonthData: FoodMonthRange) {
         //filter by baby age
-        print("filter bayi")
-        
-        print(babyData)
-        print(babyData.getWeightStatus())
-        
-        data = data.filter {
-            !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
-            babyData.getAgeMonth() ?? 0 >= $0.min_months &&
-            babyData.getAgeMonth() ?? 0 <= $0.max_months &&
-            (babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true)
-            
-//            (babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
-//            &&
-//            babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max) ?
-//            true : babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min ?
-//            $0.for_weight_status == -1 : babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max ? $0.for_weight_status == 1 : false
-//            ( babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min &&
-//              babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
-//            ) {
-//                return true
-//            }
+        print("filter makanan perbulan apa")
+        if(foodMonthData.min != nil && foodMonthData.max != nil){
+            data = data.filter {
+          
+                foodMonthData.min == $0.min_months &&
+                foodMonthData.max == $0.max_months
+ 
+            }
+        }        
+        else
+        {
+            data = getDummyIngredients(n: 5)
         }
+
+   
         print(data.count)
         
         
@@ -115,6 +113,9 @@ struct IngredientsController: UIViewController {
     
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
+    }
+    func updateFoodMonthData(_ foodMonthData: FoodMonthRange) {
+        self.foodMonthData = foodMonthData
     }
 }
 

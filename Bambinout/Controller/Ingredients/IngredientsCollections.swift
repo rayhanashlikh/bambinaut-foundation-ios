@@ -9,13 +9,14 @@ import SwiftUI
 
 struct IngredientsCollections: UIViewControllerRepresentable {
     @Binding var search: String
-    @Binding var babyData: BabyData
+    @Binding var foodMonthData: FoodMonthRange
     
-    func makeUIViewController(context: Context) -> ForYouViewController {
-        return ForYouViewController(babyData: babyData)
+    func makeUIViewController(context: Context) -> IngredientsController {
+        return IngredientsController(foodMonthData: foodMonthData)
     }
 
-    func updateUIViewController(_ uiViewController: ForYouViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: IngredientsController, context: Context) {
         uiViewController.updateSearchText(search)
+        uiViewController.updateFoodMonthData(foodMonthData)
     }
 }
