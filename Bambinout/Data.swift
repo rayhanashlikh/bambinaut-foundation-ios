@@ -34,8 +34,9 @@ struct BabyData {
     var latest_weight: Double
     var latest_weight_date: Date?
     var birth_date: Date?
-    var gender: Int
+    var gender: Int // 0 = female; 1 = male
     
+    //mendapatkan umur bayi dalam bulan berdasarkan tanggal lahir
     func getAgeMonth() -> Int? {
         let calendar = Calendar.current
         let current = Date()
@@ -47,6 +48,8 @@ struct BabyData {
         return components.month
     }
     
+    //mendapatkan status berat badan bayi
+    //-1 = underweight; 0 = normal; 1 = overweight
     func getWeightStatus() -> Int {
         if (self.latest_weight >= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).max) {
             return 1
@@ -89,25 +92,63 @@ extension UIColor {
   }
 }
 
-
-
 func getDummyIngredients(n: Int) -> [IngredientData] {
-    let ingredientData = IngredientData(
-        imageName: "tomato",
-        name: "Tomato",
-        description: "ini adalah tomat",
-        allergy_id: nil,
-        min_months: 6,
-        max_months: 8,
-        for_weight_status: -1
-    )
+    var ingredientData: [IngredientData] = []
     
-    var data: [IngredientData] = []
     for _ in 0...n {
-        data.append(ingredientData)
+        let newData1 = IngredientData(
+            imageName: "tomato",
+            name: "Tomato",
+            description: "This is Tomato",
+            allergy_id: 1,
+            min_months: 8,
+            max_months: 10,
+            for_weight_status: 1
+        )
+        let newData2 = IngredientData(
+            imageName: "avocado",
+            name: "Avocado",
+            description: "This is avocado",
+            allergy_id: 2,
+            min_months: 6,
+            max_months: 8,
+            for_weight_status: -1
+        )
+        let newData3 = IngredientData(
+            imageName: "water",
+            name: "Water",
+            description: "This is water",
+            allergy_id: 1,
+            min_months: 10,
+            max_months: 12,
+            for_weight_status: -1
+        )
+        let newData4 = IngredientData(
+            imageName: "banana",
+            name: "Banana",
+            description: "This is banana",
+            allergy_id: 3,
+            min_months: 6,
+            max_months: 8,
+            for_weight_status: -1
+        )
+        let newData5 = IngredientData(
+            imageName: "chicken",
+            name: "Chicken",
+            description: "This is chicken",
+            allergy_id: 1,
+            min_months: 10,
+            max_months: 12,
+            for_weight_status: -1
+        )
+        ingredientData.append(newData1)
+        ingredientData.append(newData2)
+        ingredientData.append(newData3)
+        ingredientData.append(newData4)
+        ingredientData.append(newData5)
     }
     
-    return data
+    return ingredientData
 }
 
 func getDummyBaby() -> BabyData {
@@ -117,7 +158,7 @@ func getDummyBaby() -> BabyData {
         latest_weight: 6,
         latest_weight_date: getDate(date: "2024-09-13"),
         birth_date: getDate(date: "2024-02-03"),
-        gender: 0
+        gender: 1
     )
 }
 
