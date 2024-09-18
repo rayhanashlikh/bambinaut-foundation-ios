@@ -50,15 +50,15 @@ class IngredientsViewController: UIViewController {
                 name: "Tomato",
                 description: "This is Tomato",
                 allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
+                min_months: 8,
+                max_months: 10,
+                for_weight_status: 1
             )
             let newData2 = IngredientData(
                 imageName: "avocado",
                 name: "Avocado",
                 description: "This is avocado",
-                allergy_id: 1,
+                allergy_id: 2,
                 min_months: 6,
                 max_months: 8,
                 for_weight_status: -1
@@ -68,15 +68,15 @@ class IngredientsViewController: UIViewController {
                 name: "Water",
                 description: "This is water",
                 allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
+                min_months: 10,
+                max_months: 12,
                 for_weight_status: -1
             )
             let newData4 = IngredientData(
                 imageName: "banana",
                 name: "Banana",
                 description: "This is banana",
-                allergy_id: 1,
+                allergy_id: 3,
                 min_months: 6,
                 max_months: 8,
                 for_weight_status: -1
@@ -86,8 +86,8 @@ class IngredientsViewController: UIViewController {
                 name: "Chicken",
                 description: "This is chicken",
                 allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
+                min_months: 10,
+                max_months: 12,
                 for_weight_status: -1
             )
             data.append(newData1)
@@ -95,8 +95,11 @@ class IngredientsViewController: UIViewController {
             data.append(newData3)
             data.append(newData4)
             data.append(newData5)
-            filteredData = data
         }
+        filterData(babyData: babyData)
+        
+        filteredData = data
+        
         
         self.ingredientView.dataSource = self
         self.ingredientView.delegate = self
@@ -123,6 +126,36 @@ class IngredientsViewController: UIViewController {
             filteredData = data.filter { $0.name.lowercased().contains(name.lowercased()) }
         }
         ingredientView.reloadData()
+    }
+    
+    func filterData(babyData: BabyData) {
+        //filter by baby age
+        print("filter bayi")
+        
+        print(data.count)
+        
+        data = data.filter {
+            !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
+            babyData.getAgeMonth() ?? 0 >= $0.min_months &&
+            babyData.getAgeMonth() ?? 0 <= $0.max_months
+//            babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true
+            
+//            (babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
+//            &&
+//            babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max) ?
+//            true : babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min ?
+//            $0.for_weight_status == -1 : babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max ? $0.for_weight_status == 1 : false
+//            ( babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min &&
+//              babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
+//            ) {
+//                return true
+//            }
+        }
+        print(data.count)
+        
+        
+        ingredientView.reloadData()
+        
     }
     
     func updateSearchText(_ searchText: String) {
