@@ -12,6 +12,7 @@ class IngredientsViewController: UIViewController {
     
     private var data: [IngredientData] = []
     private var filteredData: [IngredientData] = []
+    private var babyData: BabyData;
     
     private lazy var ingredientView: UICollectionView = {
         
@@ -27,6 +28,17 @@ class IngredientsViewController: UIViewController {
         )
         return ingredientView
     }()
+    
+    // Custom initializer
+    init(babyData: BabyData) {
+        self.babyData = babyData
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    // Required initializer for using storyboards or nib files
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
