@@ -13,6 +13,11 @@
 		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
 		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		0430EEF82C947C7A00155C8A /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF72C947C7A00155C8A /* Observables.swift */; };
+		04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE32C9933570067E6F1 /* BabyProfileView.swift */; };
+		04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE52C9933710067E6F1 /* ProfileView.swift */; };
+		04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE72C9933980067E6F1 /* AccountView.swift */; };
+		04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */; };
+		04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */; };
 		04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088792C92A7DF00047A37 /* BambinoutApp.swift */; };
 		04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0887B2C92A7DF00047A37 /* ContentView.swift */; };
 		04B0887E2C92A7E100047A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B0887D2C92A7E100047A37 /* Assets.xcassets */; };
@@ -52,6 +57,11 @@
 		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0430EEF72C947C7A00155C8A /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
+		04A17CE32C9933570067E6F1 /* BabyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfileView.swift; sourceTree = "<group>"; };
+		04A17CE52C9933710067E6F1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		04A17CE72C9933980067E6F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAllergiesView.swift; sourceTree = "<group>"; };
 		04B088762C92A7DF00047A37 /* Bambinout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bambinout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B088792C92A7DF00047A37 /* BambinoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambinoutApp.swift; sourceTree = "<group>"; };
 		04B0887B2C92A7DF00047A37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +152,11 @@
 				04B088C72C94100800047A37 /* TabBarView.swift */,
 				0430EEF52C9445D300155C8A /* Storyboard.storyboard */,
 				0430EEF72C947C7A00155C8A /* Observables.swift */,
+				04A17CE32C9933570067E6F1 /* BabyProfileView.swift */,
+				04A17CE52C9933710067E6F1 /* ProfileView.swift */,
+				04A17CE72C9933980067E6F1 /* AccountView.swift */,
+				04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */,
+				04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */,
 			);
 			path = Bambinout;
 			sourceTree = "<group>";
@@ -304,10 +319,15 @@
 			files = (
 				0430EEF82C947C7A00155C8A /* Observables.swift in Sources */,
 				04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */,
+				04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */,
+				04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */,
 				04B088C22C940EFD00047A37 /* IngredientsView.swift in Sources */,
+				04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */,
+				04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */,
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
+				04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */,
 				0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */,
 				0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */,
 				04B088C02C9408C800047A37 /* TampilanData.swift in Sources */,
