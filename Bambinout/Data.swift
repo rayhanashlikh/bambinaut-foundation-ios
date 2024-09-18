@@ -8,7 +8,7 @@
 import SwiftUI
 
 func getDate(date: String) -> Date? {
-    var dateFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     
     if let date = dateFormatter.date(from: date) {
@@ -25,15 +25,37 @@ struct IngredientData {
     var allergy_id: Int?
     var min_months: Int
     var max_months: Int
-    var for_weight_status: Int
+    var for_weight_status: Int // -1 = untuk bayi underweight; 0 = normal; 1 = untuk bayi overweight
 }
 
 struct BabyData {
     var id: Int
     var allergy_ids: [Int]
-    var latest_weight: Int
+    var latest_weight: Double
     var latest_weight_date: Date?
     var birth_date: Date?
+    var gender: Int
+    
+    func getAgeMonth() -> Int? {
+        let calendar = Calendar.current
+        let current = Date()
+        guard self.birth_date ?? current <= current else {
+            return nil
+        }
+        
+        let components = calendar.dateComponents([.month], from: self.birth_date ?? current, to: current)
+        return components.month
+    }
+    
+    func getWeightStatus() -> Int {
+        if (self.latest_weight >= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).max) {
+            return 1
+        } else if (self.latest_weight <= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).min) {
+            return -1
+        } else {
+            return 0
+        }
+    }
 }
 
 struct AppColors {
@@ -88,10 +110,58 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
     return data
 }
 
+func getDummyBaby() -> BabyData {
+    return BabyData(
+        id: 1,
+        allergy_ids: [1,3],
+        latest_weight: 6,
+        latest_weight_date: getDate(date: "2024-09-13"),
+        birth_date: getDate(date: "2024-02-03"),
+        gender: 0
+    )
+}
+
 var mainItem: [[Any]] = [
     ["avocado","Avocado","Fiber",Color.green],
     ["banana","Banana","Fiber",Color.green],
     ["chicken","Chicken","Protein",Color.green],
     ["water","Water","water",Color.green]
-
 ]
+
+struct WeightRange {
+    let min: Double
+    let max: Double
+}
+
+// Define the type alias for age to weight range dictionary
+typealias AgeWeightRanges = [String: WeightRange]
+
+// Define the type alias for an array of weight ranges
+typealias OptimalWeightRanges = [AgeWeightRanges]
+
+// Define the main data structure
+var optimalWeightRange: OptimalWeightRanges = [
+    [
+        "6": WeightRange(min: 5.7, max: 8.2),
+        "7": WeightRange(min: 6.0, max: 8.6),
+        "8": WeightRange(min: 6.3, max: 9.0),
+        "9": WeightRange(min: 6.5, max: 9.3),
+        "10": WeightRange(min: 6.7, max: 9.6),
+        "11": WeightRange(min: 6.9, max: 9.9),
+        "12": WeightRange(min: 7.0, max: 10.1)
+    ],
+    [
+        "6": WeightRange(min: 6.4, max: 8.8),
+        "7": WeightRange(min: 6.7, max: 9.2),
+        "8": WeightRange(min: 6.9, max: 9.6),
+        "9": WeightRange(min: 7.1, max: 9.9),
+        "10": WeightRange(min: 7.4, max: 10.2),
+        "11": WeightRange(min: 7.6, max: 10.5),
+        "12": WeightRange(min: 7.7, max: 10.8)
+    ]
+]
+
+func getBabyOptimalWeightRange(age: Int, gender: Int) -> WeightRange {
+    let ret = optimalWeightRange[gender][String(age)]
+    return ret ?? WeightRange(min: 5.7, max: 8.2)
+}
