@@ -31,6 +31,10 @@
 		04B088C42C940F4200047A37 /* ForYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C32C940F4200047A37 /* ForYouView.swift */; };
 		04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C52C940F6D00047A37 /* TrackerView.swift */; };
 		04B088C82C94100800047A37 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C72C94100800047A37 /* TabBarView.swift */; };
+		04B088D02C9A6D9C00047A37 /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */; };
+		04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D22C9A867E00047A37 /* IngredientsCollections.swift */; };
+		04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */; };
+		04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D62C9A870400047A37 /* IngredientsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		04B088C32C940F4200047A37 /* ForYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouView.swift; sourceTree = "<group>"; };
 		04B088C52C940F6D00047A37 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		04B088C72C94100800047A37 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
+		04B088D22C9A867E00047A37 /* IngredientsCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollections.swift; sourceTree = "<group>"; };
+		04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionsviewCell.swift; sourceTree = "<group>"; };
+		04B088D62C9A870400047A37 /* IngredientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 		0430EEEC2C94418600155C8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04B088D12C9A866400047A37 /* Ingredients */,
 				04ED81472C9A7E39001E7303 /* ForYou */,
 			);
 			path = Controller;
@@ -155,6 +164,7 @@
 				04A17CE72C9933980067E6F1 /* AccountView.swift */,
 				04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */,
 				04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */,
+				04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */,
 			);
 			path = Bambinout;
 			sourceTree = "<group>";
@@ -182,6 +192,16 @@
 				04B088962C92A7E100047A37 /* BambinoutUITestsLaunchTests.swift */,
 			);
 			path = BambinoutUITests;
+			sourceTree = "<group>";
+		};
+		04B088D12C9A866400047A37 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				04B088D22C9A867E00047A37 /* IngredientsCollections.swift */,
+				04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */,
+				04B088D62C9A870400047A37 /* IngredientsController.swift */,
+			);
+			path = Ingredients;
 			sourceTree = "<group>";
 		};
 		04ED81472C9A7E39001E7303 /* ForYou */ = {
@@ -327,7 +347,9 @@
 			files = (
 				0430EEF82C947C7A00155C8A /* Observables.swift in Sources */,
 				04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */,
+				04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */,
 				04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */,
+				04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */,
 				04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */,
 				04B088C22C940EFD00047A37 /* IngredientsView.swift in Sources */,
 				04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */,
@@ -335,6 +357,7 @@
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
+				04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */,
 				04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */,
 				0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */,
 				0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */,
@@ -343,6 +366,7 @@
 				0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */,
 				0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
+				04B088D02C9A6D9C00047A37 /* SearchDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

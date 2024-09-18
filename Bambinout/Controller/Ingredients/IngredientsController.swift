@@ -1,8 +1,13 @@
-
+//
+//  IngredientsController.swift
+//  Bambinout
+//
+//  Created by MacBook Air on 18/09/24.
+//
 import UIKit
 import SwiftUI
 
-class ForYouViewController: UIViewController {
+struct IngredientsController: UIViewController {
     private var searchText: String = "" {
         didSet {
             filterData(name: searchText)
@@ -14,19 +19,19 @@ class ForYouViewController: UIViewController {
     private var filteredData: [IngredientData] = []
     private var babyData: BabyData;
     
-    private lazy var forYouView: UICollectionView = {
+    private lazy var ingredientView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: margin, left:  margin, bottom:  margin, right:  margin)
         
-        let forYouView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        forYouView.backgroundColor = .systemBackground
-        forYouView.register(
+        let ingredientView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        ingredientView.backgroundColor = .systemBackground
+        ingredientView.register(
             ForYouCollectionViewCell.self,
             forCellWithReuseIdentifier: ForYouCollectionViewCell.identifier
         )
-        return forYouView
+        return ingredientView
     }()
     
     // Custom initializer
@@ -50,21 +55,21 @@ class ForYouViewController: UIViewController {
         filteredData = data
         
         
-        self.forYouView.dataSource = self
-        self.forYouView.delegate = self
+        self.ingredientView.dataSource = self
+        self.ingredientView.delegate = self
     }
     
     private func setupUI() {
         self.view.backgroundColor = .white
         
-        self.view.addSubview(forYouView)
-        forYouView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(ingredientView)
+        ingredientView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            forYouView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            forYouView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            forYouView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            forYouView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            ingredientView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            ingredientView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            ingredientView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            ingredientView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
     
@@ -74,7 +79,7 @@ class ForYouViewController: UIViewController {
         } else {
             filteredData = data.filter { $0.name.lowercased().contains(name.lowercased()) }
         }
-        forYouView.reloadData()
+        ingredientView.reloadData()
     }
     
     func filterData(babyData: BabyData) {
@@ -104,7 +109,7 @@ class ForYouViewController: UIViewController {
         print(data.count)
         
         
-        forYouView.reloadData()
+        ingredientView.reloadData()
         
     }
     
@@ -113,13 +118,13 @@ class ForYouViewController: UIViewController {
     }
 }
 
-extension ForYouViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension IngredientsController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = forYouView.dequeueReusableCell(withReuseIdentifier:
+        guard let cell = ingredientView.dequeueReusableCell(withReuseIdentifier:
             ForYouCollectionViewCell.identifier, for: indexPath) as?
             ForYouCollectionViewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
@@ -149,7 +154,7 @@ extension ForYouViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
 }
 
-extension ForYouViewController: UICollectionViewDelegateFlowLayout {
+extension IngredientsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

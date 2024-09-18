@@ -201,6 +201,15 @@ var optimalWeightRange: OptimalWeightRanges = [
         "12": WeightRange(min: 7.7, max: 10.8)
     ]
 ]
+func getDummyIngredients() -> [IngredientData] {
+    return [
+        IngredientData(imageName: "tomato", name: "Tomato", description: "A red vegetable", allergy_id: nil, min_months: 6, max_months: 8, for_weight_status: -1),
+        IngredientData(imageName: "carrot", name: "Carrot", description: "Rich in vitamins", allergy_id: nil, min_months: 6, max_months: 10, for_weight_status: -1),
+        IngredientData(imageName: "banana", name: "Banana", description: "Good source of fiber", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
+        IngredientData(imageName: "avocado", name: "Avocado", description: "Great for healthy fats", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
+      
+    ]
+}
 
 func getBabyOptimalWeightRange(age: Int, gender: Int) -> WeightRange {
     let ret = optimalWeightRange[gender][String(age)]
