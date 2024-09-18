@@ -81,13 +81,14 @@ class ForYouViewController: UIViewController {
         //filter by baby age
         print("filter bayi")
         
-        print(data.count)
+        print(babyData)
+        print(babyData.getWeightStatus())
         
         data = data.filter {
             !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
             babyData.getAgeMonth() ?? 0 >= $0.min_months &&
-            babyData.getAgeMonth() ?? 0 <= $0.max_months
-//            babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true
+            babyData.getAgeMonth() ?? 0 <= $0.max_months &&
+            (babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true)
             
 //            (babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
 //            &&
