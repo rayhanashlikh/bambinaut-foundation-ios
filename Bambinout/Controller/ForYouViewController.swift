@@ -2,7 +2,7 @@
 import UIKit
 import SwiftUI
 
-class IngredientsViewController: UIViewController {
+class ForYouViewController: UIViewController {
     private var searchText: String = "" {
         didSet {
             filterData(name: searchText)
@@ -23,8 +23,8 @@ class IngredientsViewController: UIViewController {
         let ingredientView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         ingredientView.backgroundColor = .systemBackground
         ingredientView.register(
-            IngredientsCollectionViewCell.self,
-            forCellWithReuseIdentifier: IngredientsCollectionViewCell.identifier
+            ForYouCollectionViewCell.self,
+            forCellWithReuseIdentifier: ForYouCollectionViewCell.identifier
         )
         return ingredientView
     }()
@@ -112,15 +112,15 @@ class IngredientsViewController: UIViewController {
     }
 }
 
-extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ForYouViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = ingredientView.dequeueReusableCell(withReuseIdentifier:
-            IngredientsCollectionViewCell.identifier, for: indexPath) as?
-            IngredientsCollectionViewCell else {
+            ForYouCollectionViewCell.identifier, for: indexPath) as?
+            ForYouCollectionViewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
         let ingredient = self.filteredData[indexPath.row]
@@ -148,7 +148,7 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
         }
 }
 
-extension IngredientsViewController: UICollectionViewDelegateFlowLayout {
+extension ForYouViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

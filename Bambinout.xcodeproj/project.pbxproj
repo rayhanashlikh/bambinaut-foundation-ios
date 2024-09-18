@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* IngredientCollections.swift */; };
-		0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */; };
-		0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */; };
+		0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* ForYouCollections.swift */; };
+		0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */; };
+		0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* ForYouViewController.swift */; };
 		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
 		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		0430EEF82C947C7A00155C8A /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF72C947C7A00155C8A /* Observables.swift */; };
@@ -46,9 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0430EEED2C9441C400155C8A /* IngredientCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollections.swift; sourceTree = "<group>"; };
-		0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
-		0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		0430EEED2C9441C400155C8A /* ForYouCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollections.swift; sourceTree = "<group>"; };
+		0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
+		0430EEEF2C9441C400155C8A /* ForYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0430EEF72C947C7A00155C8A /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		0430EEEC2C94418600155C8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0430EEED2C9441C400155C8A /* IngredientCollections.swift */,
-				0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */,
-				0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */,
+				0430EEED2C9441C400155C8A /* ForYouCollections.swift */,
+				0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */,
+				0430EEEF2C9441C400155C8A /* ForYouViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,12 +308,12 @@
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
-				0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */,
-				0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */,
+				0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */,
+				0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */,
 				04B088C02C9408C800047A37 /* TampilanData.swift in Sources */,
 				04B088A42C93C79400047A37 /* Data.swift in Sources */,
 				0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */,
-				0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */,
+				0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

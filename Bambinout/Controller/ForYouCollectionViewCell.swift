@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IngredientsCollectionViewCell: UICollectionViewCell {
+class ForYouCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "IngredientCollectionViewCell"
     

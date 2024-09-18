@@ -12,7 +12,7 @@ struct ForYouView: View {
     var body: some View {
         NavigationStack {
            VStack {
-               IngredientCollections(search: $searchDataModel.searchText, babyData: $dummyBabyData.babyData)
+               ForYouCollections(search: $searchDataModel.searchText, babyData: $dummyBabyData.babyData)
            }
            .navigationTitle("For You")
         }.searchable(text: $searchDataModel.searchText)
