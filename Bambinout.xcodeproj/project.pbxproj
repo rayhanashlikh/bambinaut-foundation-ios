@@ -108,9 +108,7 @@
 		0430EEEC2C94418600155C8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0430EEED2C9441C400155C8A /* ForYouCollections.swift */,
-				0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */,
-				0430EEEF2C9441C400155C8A /* ForYouViewController.swift */,
+				04ED81472C9A7E39001E7303 /* ForYou */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +182,16 @@
 				04B088962C92A7E100047A37 /* BambinoutUITestsLaunchTests.swift */,
 			);
 			path = BambinoutUITests;
+			sourceTree = "<group>";
+		};
+		04ED81472C9A7E39001E7303 /* ForYou */ = {
+			isa = PBXGroup;
+			children = (
+				0430EEED2C9441C400155C8A /* ForYouCollections.swift */,
+				0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */,
+				0430EEEF2C9441C400155C8A /* ForYouViewController.swift */,
+			);
+			path = ForYou;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
