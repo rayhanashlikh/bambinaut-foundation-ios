@@ -8,11 +8,11 @@
 import SwiftUI
 struct ForYouView: View {
     @StateObject private var searchDataModel = SearchDataModel()
-    @StateObject private var dummyBabyData = BabyDataModel(babyData: getDummyBaby())
+    @State var dummyBabyData: BabyData = getDummyBaby()
     var body: some View {
         NavigationStack {
            VStack {
-               ForYouCollections(search: $searchDataModel.searchText, babyData: $dummyBabyData.babyData)
+               ForYouCollections(search: $searchDataModel.searchText, babyData: $dummyBabyData)
            }
            .navigationTitle("For You")
         }.searchable(text: $searchDataModel.searchText)

@@ -130,15 +130,15 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
             allergy_id: 3,
             min_months: 6,
             max_months: 8,
-            for_weight_status: -1
+            for_weight_status: 1
         )
         let newData5 = IngredientData(
             imageName: "chicken",
             name: "Chicken",
             description: "This is chicken",
             allergy_id: 1,
-            min_months: 10,
-            max_months: 12,
+            min_months: 6,
+            max_months: 8,
             for_weight_status: -1
         )
         ingredientData.append(newData1)
@@ -154,8 +154,8 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
 func getDummyBaby() -> BabyData {
     return BabyData(
         id: 1,
-        allergy_ids: [1,3],
-        latest_weight: 6,
+        allergy_ids: [],
+        latest_weight: 19.3,
         latest_weight_date: getDate(date: "2024-09-13"),
         birth_date: getDate(date: "2024-02-03"),
         gender: 1
