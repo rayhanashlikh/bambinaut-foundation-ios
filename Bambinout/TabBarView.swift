@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct TabBarView: View {
+    // Configure the appearance of the TabBar in the init method
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "tabbar-bg-blue") // Use the custom color
+        
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance // For handling scroll edge appearance in iOS 15+
+    }
+    
     var body: some View {
             TabView {
                 ForYouView()
@@ -26,7 +36,6 @@ struct TabBarView: View {
                         Text("Ingredients")
                     }
             }
-        
     }
 }
 
