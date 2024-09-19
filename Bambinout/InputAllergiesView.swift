@@ -47,10 +47,13 @@ struct InputAllergiesView: View {
                             selectedAllergies.insert(allergy.id)
                         }
                     }
-                }.navigationTitle("Select Allergies").navigationBarTitleDisplayMode(.inline)
-                    .navigationBarItems(trailing: Button("Done") {
-                        saveChanges()
-                    })
+                }
+                .scrollContentBackground(.hidden)
+                .background(.tabbarBgBlue)
+                .navigationTitle("Select Allergies").navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing: Button("Done") {
+                    saveChanges()
+                })
             }
             
         }

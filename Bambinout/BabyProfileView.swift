@@ -57,6 +57,8 @@ struct BabyProfileView: View {
                         
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .background(.tabbarBgBlue)
                 .navigationTitle("Baby Profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: Button("Save") {

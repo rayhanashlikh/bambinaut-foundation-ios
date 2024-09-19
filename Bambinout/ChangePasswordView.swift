@@ -35,6 +35,8 @@ struct ChangePasswordView: View {
                     }
                     
                 }
+                .scrollContentBackground(.hidden)
+                .background(.tabbarBgBlue)
                 .navigationTitle("Change Password")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: Button("Save") {

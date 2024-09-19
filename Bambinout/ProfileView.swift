@@ -10,15 +10,11 @@ import SwiftUI
 struct ProfileView: View {
     var body: some View {
         NavigationStack {
-        
             VStack {
-                Image("yourImageName")
+                Image(systemName: "person.circle.fill")
                     .resizable()
-                    .scaledToFill()
                     .frame(width: 100, height: 100)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.gray, lineWidth: 2))
-                    .padding(.top)
+                    
                 List {
                     NavigationLink(destination: BabyProfileView()) {
                         Label("Baby Profile", systemImage: "figure.child")
@@ -31,11 +27,12 @@ struct ProfileView: View {
                     NavigationLink(destination: ChangePasswordView()) {
                         Label("Change Password", systemImage: "key")
                     }
-                }.listStyle(.plain)
+                }/*.listStyle(.plain)*/
+                .scrollContentBackground(.hidden)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Profile")
-            
+            .background(.tabbarBgBlue)
         }
     }
 }

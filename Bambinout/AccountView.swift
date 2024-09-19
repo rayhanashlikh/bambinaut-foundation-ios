@@ -10,31 +10,29 @@ import SwiftUI
 struct AccountView: View {
     @State var userEmail = "example@mail.com"
     var body: some View {
+        VStack {
             NavigationStack {
-                ZStack {
-                    Color(.tabbarBgBlue) // Set the background color
-                        .ignoresSafeArea() // Make it cover the entire screen
-
-                    Form {
-                        HStack {
-                            Text("Email")
-                            Spacer()
-                            Text(userEmail)
-                                .foregroundColor(.gray)
-                                .multilineTextAlignment(.trailing)
-                        }
-                        HStack {
-                            NavigationLink(destination: ChangePasswordView()) {
-                                Text("Change Password")
-                            }
+                Form {
+                    HStack {
+                        Text("Email")
+                        Spacer()
+                        Text(userEmail)
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        NavigationLink(destination: ChangePasswordView()) {
+                            Text("Change Password")
                         }
                     }
-                    .scrollContentBackground(.hidden)
-                    .navigationTitle("Account")
-                    .navigationBarTitleDisplayMode(.inline)
                 }
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Account")
+                .navigationBarTitleDisplayMode(.inline)
+                .background(.tabbarBgBlue)
             }
         }
+    }
    
 }
 
