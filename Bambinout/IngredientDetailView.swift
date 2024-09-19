@@ -4,21 +4,45 @@ struct IngredientDetailView: View {
     let ingredient: IngredientData
     
     var body: some View {
-        VStack {
-            Text(ingredient.name)
-                .font(.largeTitle)
+        NavigationStack {
+            ScrollView {
+                
+                VStack {
+                    Image(ingredient.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+                    HStack {
+                        Text(ingredient.name)
+                            .font(.title)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(ingredient.nutrition_ids, id: \.self) { item in
+                                Text(item.name)
+                                    .padding(10)
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }.scrollIndicators(.hidden)
+                    
+                    HStack {
+                        Text(ingredient.description)
+                        Spacer()
+                    }
+                }.padding(25)
+                    .background(.cyan)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+            }.navigationTitle("Ingredient detail")
                 .padding()
-            
-            // Assuming you have an image asset with the name
-            Image(ingredient.imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .padding()
-            
-            Text(ingredient.description)
-                .padding()
-        }
+            }
     }
+}
+
+#Preview {
+    IngredientDetailView(ingredient: getDummyIngredients(n: 1)[0])
 }
 

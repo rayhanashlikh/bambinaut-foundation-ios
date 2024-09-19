@@ -1,21 +1,52 @@
-//
-//  IngredientsView.swift
-//  Bambinout
-//
-//  Created by MacBook Air on 13/09/24.
-//
-
 import SwiftUI
 
+
 struct IngredientsView: View {
+    @StateObject private var searchDataModel = SearchDataModel()
+    @State private var selectedCategory = FoodMonthRange(title: "All", min: nil, max: nil)
+    let categories = getFoodMonthCategories()
     var body: some View {
-        Text("Ingredients")
-            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 100)
-            .font(.caption)
-            .padding(.bottom,10)
+        ZStack{
+            NavigationStack {
+                VStack {
+                    // Category Filter
+                    Picker("Category", selection: $selectedCategory) {
+                                       ForEach(categories, id: \.self) { category in
+                                           Text(category.title).tag(category)
+                                       }
+                                   }
+                                   .pickerStyle(SegmentedPickerStyle())
+                                   .padding(.leading)
+                                   .padding(.trailing)
+                    IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
+                    
+                }
+                .navigationTitle("Ingredients")
+                .navigationBarTitleDisplayMode(.large)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                                     Button(action: {
+                                         // Navigate to ProfileView
+                                     }) {
+                                         Image(systemName: "person.circle.fill")
+                                             .resizable()
+                                             .frame(width: 40,height: 40)
+                                             .foregroundColor(.black)
+                                     }
+                                 }
+                             }
+            }.searchable(text: $searchDataModel.searchText)
+                .environmentObject(searchDataModel)
+        }
     }
 }
-
-#Preview {
-    IngredientsView()
+struct Ingredient: Identifiable {
+    let id = UUID()
+    let name: String
+    let image: String
+}
+struct IngredientsView_Previews: PreviewProvider {
+    static var previews: some View {
+        IngredientsView()
+    }
 }

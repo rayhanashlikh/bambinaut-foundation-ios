@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* IngredientCollections.swift */; };
-		0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */; };
-		0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */; };
+		0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* ForYouCollections.swift */; };
+		0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */; };
+		0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* ForYouViewController.swift */; };
 		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
 		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		0430EEF82C947C7A00155C8A /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF72C947C7A00155C8A /* Observables.swift */; };
+		04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE32C9933570067E6F1 /* BabyProfileView.swift */; };
+		04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE52C9933710067E6F1 /* ProfileView.swift */; };
+		04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE72C9933980067E6F1 /* AccountView.swift */; };
+		04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */; };
+		04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */; };
 		04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088792C92A7DF00047A37 /* BambinoutApp.swift */; };
 		04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0887B2C92A7DF00047A37 /* ContentView.swift */; };
 		04B0887E2C92A7E100047A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B0887D2C92A7E100047A37 /* Assets.xcassets */; };
@@ -30,6 +35,10 @@
 		04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F82C9A7F0B0066042B /* MonthPickerView.swift */; };
 		04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */; };
 		04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B704032C9BCF270066042B /* WeightInfoView.swift */; };
+		04B088D02C9A6D9C00047A37 /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */; };
+		04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D22C9A867E00047A37 /* IngredientsCollections.swift */; };
+		04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */; };
+		04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D62C9A870400047A37 /* IngredientsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +59,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0430EEED2C9441C400155C8A /* IngredientCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollections.swift; sourceTree = "<group>"; };
-		0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
-		0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		0430EEED2C9441C400155C8A /* ForYouCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollections.swift; sourceTree = "<group>"; };
+		0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
+		0430EEEF2C9441C400155C8A /* ForYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0430EEF72C947C7A00155C8A /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
+		04A17CE32C9933570067E6F1 /* BabyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfileView.swift; sourceTree = "<group>"; };
+		04A17CE52C9933710067E6F1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		04A17CE72C9933980067E6F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAllergiesView.swift; sourceTree = "<group>"; };
 		04B088762C92A7DF00047A37 /* Bambinout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bambinout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B088792C92A7DF00047A37 /* BambinoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambinoutApp.swift; sourceTree = "<group>"; };
 		04B0887B2C92A7DF00047A37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +90,10 @@
 		04B703F82C9A7F0B0066042B /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartView.swift; sourceTree = "<group>"; };
 		04B704032C9BCF270066042B /* WeightInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInfoView.swift; sourceTree = "<group>"; };
+		04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
+		04B088D22C9A867E00047A37 /* IngredientsCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollections.swift; sourceTree = "<group>"; };
+		04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionsviewCell.swift; sourceTree = "<group>"; };
+		04B088D62C9A870400047A37 /* IngredientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +124,8 @@
 		0430EEEC2C94418600155C8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0430EEED2C9441C400155C8A /* IngredientCollections.swift */,
-				0430EEEE2C9441C400155C8A /* IngredientCollectionViewCell.swift */,
-				0430EEEF2C9441C400155C8A /* IngredientsViewController.swift */,
+				04B088D12C9A866400047A37 /* Ingredients */,
+				04ED81472C9A7E39001E7303 /* ForYou */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +170,12 @@
 				0430EEF72C947C7A00155C8A /* Observables.swift */,
 				04B703F52C9937680066042B /* InputWeightView.swift */,
 				04B704032C9BCF270066042B /* WeightInfoView.swift */,
+				04A17CE32C9933570067E6F1 /* BabyProfileView.swift */,
+				04A17CE52C9933710067E6F1 /* ProfileView.swift */,
+				04A17CE72C9933980067E6F1 /* AccountView.swift */,
+				04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */,
+				04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */,
+				04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */,
 			);
 			path = Bambinout;
 			sourceTree = "<group>";
@@ -189,6 +212,26 @@
 				04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		04B088D12C9A866400047A37 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				04B088D22C9A867E00047A37 /* IngredientsCollections.swift */,
+				04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */,
+				04B088D62C9A870400047A37 /* IngredientsController.swift */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		04ED81472C9A7E39001E7303 /* ForYou */ = {
+			isa = PBXGroup;
+			children = (
+				0430EEED2C9441C400155C8A /* ForYouCollections.swift */,
+				0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */,
+				0430EEEF2C9441C400155C8A /* ForYouViewController.swift */,
+			);
+			path = ForYou;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,21 +367,30 @@
 			files = (
 				0430EEF82C947C7A00155C8A /* Observables.swift in Sources */,
 				04B0887C2C92A7DF00047A37 /* ContentView.swift in Sources */,
+				04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */,
+				04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */,
+				04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */,
+				04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */,
 				04B088C22C940EFD00047A37 /* IngredientsView.swift in Sources */,
 				04B703F62C9937680066042B /* InputWeightView.swift in Sources */,
 				04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */,
+				04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */,
+				04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */,
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
 				04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */,
 				04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */,
-				0430EEF22C9441C400155C8A /* IngredientsViewController.swift in Sources */,
-				0430EEF12C9441C400155C8A /* IngredientCollectionViewCell.swift in Sources */,
+				04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */,
+				04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */,
+				0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */,
+				0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */,
 				04B088C02C9408C800047A37 /* TampilanData.swift in Sources */,
 				04B088A42C93C79400047A37 /* Data.swift in Sources */,
 				0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */,
-				0430EEF02C9441C400155C8A /* IngredientCollections.swift in Sources */,
+				0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
+				04B088D02C9A6D9C00047A37 /* SearchDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

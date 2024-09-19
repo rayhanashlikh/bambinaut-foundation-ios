@@ -1,17 +1,28 @@
-
+//
+//  IngredientsController.swift
+//  Bambinout
+//
+//  Created by MacBook Air on 18/09/24.
+//
 import UIKit
 import SwiftUI
 
-class IngredientsViewController: UIViewController {
+class IngredientsController: UIViewController {
     private var searchText: String = "" {
         didSet {
             filterData(name: searchText)
+        }
+    }
+    private var foodMonthData: FoodMonthRange{
+        didSet {
+            filterData(foodMonthData: foodMonthData)
         }
     }
     private let margin: CGFloat = 16
     
     private var data: [IngredientData] = []
     private var filteredData: [IngredientData] = []
+    //private var babyData: BabyData;
     
     private lazy var ingredientView: UICollectionView = {
         
@@ -22,69 +33,32 @@ class IngredientsViewController: UIViewController {
         let ingredientView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         ingredientView.backgroundColor = .systemBackground
         ingredientView.register(
-            IngredientsCollectionViewCell.self,
-            forCellWithReuseIdentifier: IngredientsCollectionViewCell.identifier
+            ForYouCollectionViewCell.self,
+            forCellWithReuseIdentifier: ForYouCollectionViewCell.identifier
         )
         return ingredientView
     }()
-        
+    
+    // Custom initializer
+    init(foodMonthData: FoodMonthRange) {
+        self.foodMonthData = foodMonthData
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    // Required initializer for using storyboards or nib files
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         
-        for _ in 0...5 {
-            let newData1 = IngredientData(
-                imageName: "tomato",
-                name: "Tomato",
-                description: "This is Tomato",
-                allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
-            )
-            let newData2 = IngredientData(
-                imageName: "avocado",
-                name: "Avocado",
-                description: "This is avocado",
-                allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
-            )
-            let newData3 = IngredientData(
-                imageName: "water",
-                name: "Water",
-                description: "This is water",
-                allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
-            )
-            let newData4 = IngredientData(
-                imageName: "banana",
-                name: "Banana",
-                description: "This is banana",
-                allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
-            )
-            let newData5 = IngredientData(
-                imageName: "chicken",
-                name: "Chicken",
-                description: "This is chicken",
-                allergy_id: 1,
-                min_months: 6,
-                max_months: 8,
-                for_weight_status: -1
-            )
-            data.append(newData1)
-            data.append(newData2)
-            data.append(newData3)
-            data.append(newData4)
-            data.append(newData5)
-            filteredData = data
-        }
+        data = getDummyIngredients(n: 5)
+       // filterData(babyData: babyData)
+        
+        filteredData = data
+        
         
         self.ingredientView.dataSource = self
         self.ingredientView.delegate = self
@@ -113,20 +87,47 @@ class IngredientsViewController: UIViewController {
         ingredientView.reloadData()
     }
     
+    func filterData(foodMonthData: FoodMonthRange) {
+        //filter by baby age
+        print("filter makanan perbulan apa")
+        if(foodMonthData.min != nil && foodMonthData.max != nil){
+            data = data.filter {
+          
+                foodMonthData.min == $0.min_months &&
+                foodMonthData.max == $0.max_months
+ 
+            }
+        }        
+        else
+        {
+            data = getDummyIngredients(n: 5)
+        }
+
+   
+        print(data.count)
+        
+        
+        ingredientView.reloadData()
+        
+    }
+    
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
     }
+    func updateFoodMonthData(_ foodMonthData: FoodMonthRange) {
+        self.foodMonthData = foodMonthData
+    }
 }
 
-extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension IngredientsController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = ingredientView.dequeueReusableCell(withReuseIdentifier:
-            IngredientsCollectionViewCell.identifier, for: indexPath) as?
-            IngredientsCollectionViewCell else {
+            ForYouCollectionViewCell.identifier, for: indexPath) as?
+            ForYouCollectionViewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
         let ingredient = self.filteredData[indexPath.row]
@@ -154,7 +155,7 @@ extension IngredientsViewController: UICollectionViewDelegate, UICollectionViewD
         }
 }
 
-extension IngredientsViewController: UICollectionViewDelegateFlowLayout {
+extension IngredientsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
