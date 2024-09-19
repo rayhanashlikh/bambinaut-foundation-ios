@@ -56,10 +56,22 @@ struct BabyProfileView: View {
                         
                         
                     }
-                }.navigationTitle("Baby Profile").navigationBarTitleDisplayMode(.inline)
-                
+                }
+                .navigationTitle("Baby Profile")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing: Button("Save") {
+                    saveChanges()
+                })
             }
         }
+    }
+    
+    private func saveChanges() {
+        print("Baby Name: \(babyName)")
+        print("Gender: \(selectedGender.rawValue)")
+        print("Birth Date: \(birthDate)")
+        
+        // Validasi
     }
 }
 

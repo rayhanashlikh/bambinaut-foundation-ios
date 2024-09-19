@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Allergies: Identifiable {
     let name: String
+//    let allergyIcon : String
     let id = UUID()
 }
 
@@ -27,38 +28,38 @@ struct InputAllergiesView: View {
     
     @State private var multiSelection = Set<UUID>()
     var body: some View {
-        
-        NavigationView {
-            List(allergyList) { allergy in
-                HStack {
-                    Text(allergy.name)
-                    Spacer()
-                    if selectedAllergies.contains(allergy.id) {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.blue)
+        VStack {
+            NavigationView {
+                List(allergyList) { allergy in
+                    HStack {
+                        Text(allergy.name)
+                        Spacer()
+                        if selectedAllergies.contains(allergy.id) {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.blue)
+                        }
                     }
-                }
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    if selectedAllergies.contains(allergy.id) {
-                        selectedAllergies.remove(allergy.id)
-                    } else {
-                        selectedAllergies.insert(allergy.id)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if selectedAllergies.contains(allergy.id) {
+                            selectedAllergies.remove(allergy.id)
+                        } else {
+                            selectedAllergies.insert(allergy.id)
+                        }
                     }
-                }
-            }.navigationTitle("Select Allergies").navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(trailing: Button("Done") {
-                    saveChanges()
-                })
+                }.navigationTitle("Select Allergies").navigationBarTitleDisplayMode(.inline)
+                    .navigationBarItems(trailing: Button("Done") {
+                        saveChanges()
+                    })
+            }
+            
         }
-        
         
     }
     
     private func saveChanges() {
-            // Handle the save action here
-            print("Selected allergies: \(selectedAllergies.map { $0 })")
-        }
+        print("Selected allergies: \(selectedAllergies.map { $0 })")
+    }
 }
 
 #Preview {

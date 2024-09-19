@@ -35,9 +35,21 @@ struct ChangePasswordView: View {
                     }
                     
                 }
-                .navigationTitle("Change Password").navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Change Password")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing: Button("Save") {
+                    saveChanges()
+                })
             }
         }
+    }
+    
+    private func saveChanges() {
+        print("Old Password: \(userPassword)")
+        print("New Password: \(newPassword)")
+        print("Confirm Password: \(confirmPassword)")
+        
+        // nanti kasi validasi dsni
     }
 }
 
