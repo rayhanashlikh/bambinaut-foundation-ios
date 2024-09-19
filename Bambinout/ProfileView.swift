@@ -9,32 +9,30 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack {
-            
-            NavigationStack {
+        NavigationStack {
+            VStack {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    
                 List {
-                    NavigationLink (
-                        destination : BabyProfileView()
-                    ) {
-                        Text("Baby Profile")
+                    NavigationLink(destination: BabyProfileView()) {
+                        Label("Baby Profile", systemImage: "figure.child")
                     }
                     
-                    NavigationLink (
-                        destination : AccountView()
-                    ) {
-                        Text("Account")
+                    NavigationLink(destination: AccountView()) {
+                        Label("Account", systemImage: "person.fill")
                     }
                     
-                    NavigationLink (
-                        destination : ChangePasswordView()
-                    ) {
-                        Text("Change Password")
+                    NavigationLink(destination: ChangePasswordView()) {
+                        Label("Change Password", systemImage: "key")
                     }
-                
-                    
-                }.navigationTitle("Profile").navigationBarTitleDisplayMode(.inline)
-                
+                }/*.listStyle(.plain)*/
+                .scrollContentBackground(.hidden)
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Profile")
+            .background(.tabbarBgBlue)
         }
     }
 }
