@@ -18,6 +18,11 @@ func getDate(date: String) -> Date? {
     }
 }
 
+struct NutritionData: Hashable {
+    var id: Int
+    var name: String
+}
+
 struct IngredientData {
     var imageName: String
     var name: String
@@ -25,6 +30,7 @@ struct IngredientData {
     var allergy_id: Int?
     var min_months: Int
     var max_months: Int
+    var nutrition_ids: [NutritionData]
     var for_weight_status: Int // -1 = untuk bayi underweight; 0 = normal; 1 = untuk bayi overweight
 }
 
@@ -92,6 +98,17 @@ extension UIColor {
   }
 }
 
+func getDummyNutritions() -> [NutritionData] {
+    return [
+        NutritionData(id: 1, name: "Vit A"),
+        NutritionData(id: 2, name: "Vit B"),
+        NutritionData(id: 3, name: "Vit C"),
+        NutritionData(id: 4, name: "Vit D"),
+        NutritionData(id: 5, name: "Vit E"),
+        NutritionData(id: 6, name: "Vit F"),
+    ]
+}
+
 func getDummyIngredients(n: Int) -> [IngredientData] {
     var ingredientData: [IngredientData] = []
     
@@ -99,46 +116,68 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
         let newData1 = IngredientData(
             imageName: "tomato",
             name: "Tomato",
-            description: "This is Tomato",
+            description: "This is Tomato. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             allergy_id: 1,
-            min_months: 8,
-            max_months: 10,
-            for_weight_status: 1
+            min_months: 6,
+            max_months: 8,
+            nutrition_ids: [
+                NutritionData(id: 2, name: "Vit B"),
+                NutritionData(id: 5, name: "Vit E"),
+                NutritionData(id: 6, name: "Vit F"),
+            ],
+            for_weight_status: -1
         )
         let newData2 = IngredientData(
             imageName: "avocado",
             name: "Avocado",
-            description: "This is avocado",
+            description: "This is avocado. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             allergy_id: 2,
             min_months: 6,
             max_months: 8,
+            nutrition_ids: [
+                NutritionData(id: 1, name: "Vit A"),
+                NutritionData(id: 5, name: "Vit E"),
+            ],
             for_weight_status: -1
         )
         let newData3 = IngredientData(
             imageName: "water",
             name: "Water",
-            description: "This is water",
+            description: "This is water. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             allergy_id: 1,
             min_months: 10,
             max_months: 12,
+            nutrition_ids: [
+                NutritionData(id: 2, name: "Vit B"),
+                NutritionData(id: 4, name: "Vit D"),
+            ],
             for_weight_status: -1
         )
         let newData4 = IngredientData(
             imageName: "banana",
             name: "Banana",
-            description: "This is banana",
+            description: "This is banana. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             allergy_id: 3,
             min_months: 6,
             max_months: 8,
+            nutrition_ids: [
+                NutritionData(id: 1, name: "Vit A"),
+                NutritionData(id: 3, name: "Vit C"),
+            ],
             for_weight_status: 1
         )
         let newData5 = IngredientData(
             imageName: "chicken",
             name: "Chicken",
-            description: "This is chicken",
+            description: "This is chicken. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             allergy_id: 1,
             min_months: 6,
             max_months: 8,
+            nutrition_ids: [
+                NutritionData(id: 1, name: "Vit A"),
+                NutritionData(id: 2, name: "Vit B"),
+                NutritionData(id: 3, name: "Vit C"),
+            ],
             for_weight_status: -1
         )
         ingredientData.append(newData1)
@@ -155,9 +194,9 @@ func getDummyBaby() -> BabyData {
     return BabyData(
         id: 1,
         allergy_ids: [],
-        latest_weight: 19.3,
+        latest_weight: 1.3,
         latest_weight_date: getDate(date: "2024-09-13"),
-        birth_date: getDate(date: "2024-02-03"),
+        birth_date: getDate(date: "2024-01-03"),
         gender: 1
     )
 }
@@ -219,15 +258,15 @@ var optimalWeightRange: OptimalWeightRanges = [
         "12": WeightRange(min: 7.7, max: 10.8)
     ]
 ]
-func getDummyIngredients() -> [IngredientData] {
-    return [
-        IngredientData(imageName: "tomato", name: "Tomato", description: "A red vegetable", allergy_id: nil, min_months: 6, max_months: 8, for_weight_status: -1),
-        IngredientData(imageName: "carrot", name: "Carrot", description: "Rich in vitamins", allergy_id: nil, min_months: 6, max_months: 10, for_weight_status: -1),
-        IngredientData(imageName: "banana", name: "Banana", description: "Good source of fiber", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
-        IngredientData(imageName: "avocado", name: "Avocado", description: "Great for healthy fats", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
-      
-    ]
-}
+//func getDummyIngredients() -> [IngredientData] {
+//    return [
+//        IngredientData(imageName: "tomato", name: "Tomato", description: "A red vegetable", allergy_id: nil, min_months: 6, max_months: 8, for_weight_status: -1),
+//        IngredientData(imageName: "carrot", name: "Carrot", description: "Rich in vitamins", allergy_id: nil, min_months: 6, max_months: 10, for_weight_status: -1),
+//        IngredientData(imageName: "banana", name: "Banana", description: "Good source of fiber", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
+//        IngredientData(imageName: "avocado", name: "Avocado", description: "Great for healthy fats", allergy_id: nil, min_months: 6, max_months: 12, for_weight_status: -1),
+//      
+//    ]
+//}
 
 func getBabyOptimalWeightRange(age: Int, gender: Int) -> WeightRange {
     let ret = optimalWeightRange[gender][String(age)]
