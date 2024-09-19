@@ -10,11 +10,6 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
             TabView {
-                IngredientsView()
-                    .tabItem {
-                        Image(systemName: "carrot")
-                        Text("Ingredients")
-                    }
                 ForYouView()
                     .tabItem {
                         Image(systemName: "hand.thumbsup")
@@ -24,6 +19,11 @@ struct TabBarView: View {
                     .tabItem {
                         Image(systemName: "chart.bar.xaxis")
                         Text("Tracker")
+                    }
+                IngredientsView()
+                    .tabItem {
+                        Image(systemName: "carrot")
+                        Text("Ingredients")
                     }
             }
         

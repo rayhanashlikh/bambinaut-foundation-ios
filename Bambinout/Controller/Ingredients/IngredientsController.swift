@@ -33,8 +33,8 @@ class IngredientsController: UIViewController {
         let ingredientView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         ingredientView.backgroundColor = .systemBackground
         ingredientView.register(
-            ForYouCollectionViewCell.self,
-            forCellWithReuseIdentifier: ForYouCollectionViewCell.identifier
+            IngredientsCollectionsviewCell.self,
+            forCellWithReuseIdentifier: IngredientsCollectionsviewCell.identifier
         )
         return ingredientView
     }()
@@ -88,28 +88,28 @@ class IngredientsController: UIViewController {
     }
     
     func filterData(foodMonthData: FoodMonthRange) {
-        //filter by baby age
-        print("filter makanan perbulan apa")
-        if(foodMonthData.min != nil && foodMonthData.max != nil){
-            data = data.filter {
-          
-                foodMonthData.min == $0.min_months &&
-                foodMonthData.max == $0.max_months
- 
+            //filter by baby age
+            print("filter makanan perbulan apa")
+            if(foodMonthData.min == nil && foodMonthData.max == nil){
+                 data = getDummyIngredients(n: 5)
             }
-        }        
-        else
-        {
-            data = getDummyIngredients(n: 5)
-        }
+            else
+            {
+                data = data.filter {
+                           (foodMonthData.min == nil || foodMonthData.min == $0.min_months) &&
+                           (foodMonthData.max == nil || foodMonthData.max == $0.max_months)
+                       }
+            }
 
-   
-        print(data.count)
-        
-        
-        ingredientView.reloadData()
-        
-    }
+       
+            print(data.count)
+            
+        DispatchQueue.main.async {
+            self.ingredientView.reloadData()
+        }
+            
+            
+        }
     
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
@@ -126,8 +126,8 @@ extension IngredientsController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = ingredientView.dequeueReusableCell(withReuseIdentifier:
-            ForYouCollectionViewCell.identifier, for: indexPath) as?
-            ForYouCollectionViewCell else {
+                                                                IngredientsCollectionsviewCell.identifier, for: indexPath) as?
+                IngredientsCollectionsviewCell else {
             fatalError("Failed to dequeue IngredientsCollectionViewCell in IngredientsViewController")
         }
         let ingredient = self.filteredData[indexPath.row]

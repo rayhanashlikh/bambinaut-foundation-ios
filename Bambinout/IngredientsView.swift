@@ -18,6 +18,7 @@ struct IngredientsView: View {
                                    .pickerStyle(SegmentedPickerStyle())
                                    .padding(.leading)
                                    .padding(.trailing)
+                                
                     IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
                     
                 }
@@ -25,13 +26,11 @@ struct IngredientsView: View {
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                                     Button(action: {
-                                         // Navigate to ProfileView
-                                     }) {
-                                         Image(systemName: "person.circle.fill")
-                                             .resizable()
-                                             .frame(width: 40,height: 40)
-                                             .foregroundColor(.black)
+                        NavigationLink(destination: ProfileView()) {
+                                                  Image(systemName: "person.circle.fill")
+                                                      .resizable()
+                                                      .frame(width: 40, height: 40)
+                                                      .foregroundColor(.black)
                                      }
                                  }
                              }
