@@ -8,6 +8,7 @@
 import SwiftUI
 struct ForYouView: View {
     @StateObject private var searchDataModel = SearchDataModel()
+//    @State var babyData: BabyData? = getDummyBaby()
     @State var babyData: BabyData? = nil
     var body: some View {
         NavigationStack {
@@ -19,7 +20,6 @@ struct ForYouView: View {
                    ))
                } else {
                    VStack {
-                       
                        NavigationLink(destination: BabyProfileView()) {
                            HStack {
                                Text("Go to baby profile")
@@ -39,6 +39,16 @@ struct ForYouView: View {
                }
            }
            .navigationTitle("For You")
+           .toolbar() {
+               ToolbarItem(placement: .topBarTrailing) {
+                   NavigationLink(destination: ProfileView()) {
+                       Image(systemName: "person.circle.fill")
+                           .resizable()
+                           .frame(width: 40, height: 40)
+                           .foregroundColor(.black)
+                   }
+               }
+           }
         }.searchable(text: $searchDataModel.searchText)
         .environmentObject(searchDataModel)
     }
