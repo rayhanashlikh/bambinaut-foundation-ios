@@ -5,24 +5,44 @@ struct IngredientDetailView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Image(ingredient.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .padding().clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+            ScrollView {
                 
-                Text(ingredient.name)
-                    .font(.largeTitle)
+                VStack {
+                    Image(ingredient.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+                    HStack {
+                        Text(ingredient.name)
+                            .font(.title)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(ingredient.nutrition_ids, id: \.self) { item in
+                                Text(item.name)
+                                    .padding(10)
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }.scrollIndicators(.hidden)
+                    
+                    HStack {
+                        Text(ingredient.description)
+                        Spacer()
+                    }
+                }.padding(25)
+                    .background(.cyan)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 
-                Text(ingredient.description)
-                    .padding()
-            }.padding()
-                .background(.red)
-        }.navigationTitle("Ingredient detail")
-            .padding()
-        
+            }.navigationTitle("Ingredient detail")
+                .padding()
+            }
     }
 }
 
+#Preview {
+    IngredientDetailView(ingredient: getDummyIngredients(n: 1)[0])
+}
 
