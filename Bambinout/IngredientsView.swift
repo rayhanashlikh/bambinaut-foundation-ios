@@ -18,7 +18,11 @@ struct IngredientsView: View {
                                    .pickerStyle(SegmentedPickerStyle())
                                    .padding(.leading)
                                    .padding(.trailing)
-                                
+                                   .onChange(of: selectedCategory) { foodMonthData in
+                                       // Update the foodMonthData property in your IngredientsController
+                                       let ingredientsController = IngredientsController(foodMonthData: foodMonthData)
+                                       ingredientsController.updateFoodMonthData(foodMonthData)
+                                   }
                     IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
                     
                 }

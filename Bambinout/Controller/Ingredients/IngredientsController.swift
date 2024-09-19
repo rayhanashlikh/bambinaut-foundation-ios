@@ -107,8 +107,6 @@ class IngredientsController: UIViewController {
         DispatchQueue.main.async {
             self.ingredientView.reloadData()
         }
-            
-            
         }
     
     func updateSearchText(_ searchText: String) {
