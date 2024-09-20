@@ -5,23 +5,21 @@ struct TrackerView: View {
     @State private var tracker = false
     @State private var selectedMonth: String = "January"
     @State private var babyStatus: Int = 1
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("background-blue")
-                    .ignoresSafeArea()
-                
                 VStack {
                     VStack {
-                        NavigationLink(destination: InputWeightView()) {
+                        NavigationLink(destination: InputWeightView().toolbar(.hidden, for: .tabBar)) {
                             HStack {
                                 Image(systemName: "plus")
                                 Text("Input Weight")
                                 Spacer()
                             }
-                            .padding(.leading)
                         }
+                        .padding()
+                        
                         Spacer()
                         
                         ScrollView {
@@ -44,7 +42,7 @@ struct TrackerView: View {
                             babyStatus(status: babyStatus)
                             
                             HStack {
-                                NavigationLink(destination: WeightInfoView()) {
+                                NavigationLink(destination: WeightInfoView().toolbar(.hidden, for: .tabBar)) {
                                     HStack {
                                         Spacer()
                                         Image(systemName: "info.circle")
@@ -58,7 +56,7 @@ struct TrackerView: View {
                                     .cornerRadius(10)
                                     .shadow(radius: 5, y: 9)
                                 }
-                                .padding()
+                                .padding([.leading, .trailing])
                             }
                         }
                         .scrollBounceBehavior(.basedOnSize, axes: [.vertical])
@@ -71,7 +69,7 @@ struct TrackerView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ForYouView()) {
+                            NavigationLink(destination: ForYouView().toolbar(.hidden, for: .tabBar)) {
                                 Image(systemName: "person.circle.fill")
                                     .resizable()
                                     .frame(width: 40, height: 40)

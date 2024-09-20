@@ -16,8 +16,8 @@ struct IngredientsView: View {
                                        }
                                    }
                                    .pickerStyle(SegmentedPickerStyle())
-                                   .padding(.leading)
-                                   .padding(.trailing)
+                                   .padding([.leading, .trailing])
+                                   .padding(.top, 15)
                     IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
                     
                 }

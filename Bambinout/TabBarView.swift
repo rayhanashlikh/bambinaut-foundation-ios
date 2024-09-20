@@ -12,30 +12,30 @@ struct TabBarView: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(named: "tabbar-bg-blue") // Use the custom color
+        appearance.backgroundColor = UIColor(named: "tabbar-bg-blue")
         
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance // For handling scroll edge appearance in iOS 15+
     }
     
     var body: some View {
-            TabView {
-                IngredientsView()
-                    .tabItem {
-                        Image(systemName: "carrot")
-                        Text("Ingredients")
-                    }
-                ForYouView()
-                    .tabItem {
-                        Image(systemName: "hand.thumbsup")
-                        Text("For You")
-                    }
-                TrackerView()
-                    .tabItem {
-                        Image(systemName: "chart.bar.xaxis")
-                        Text("Tracker")
-                    }
-            }
+        TabView {
+            IngredientsView()
+                .tabItem {
+                    Image(systemName: "carrot")
+                    Text("Ingredients")
+                }
+            ForYouView()
+                .tabItem {
+                    Image(systemName: "hand.thumbsup")
+                    Text("For You")
+                }
+            TrackerView()
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Tracker")
+                }
+        }
     }
 }
 

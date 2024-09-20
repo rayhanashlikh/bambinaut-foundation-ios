@@ -31,14 +31,14 @@
 		04B088C42C940F4200047A37 /* ForYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C32C940F4200047A37 /* ForYouView.swift */; };
 		04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C52C940F6D00047A37 /* TrackerView.swift */; };
 		04B088C82C94100800047A37 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088C72C94100800047A37 /* TabBarView.swift */; };
-		04B703F62C9937680066042B /* InputWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F52C9937680066042B /* InputWeightView.swift */; };
-		04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F82C9A7F0B0066042B /* MonthPickerView.swift */; };
-		04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */; };
-		04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B704032C9BCF270066042B /* WeightInfoView.swift */; };
 		04B088D02C9A6D9C00047A37 /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */; };
 		04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D22C9A867E00047A37 /* IngredientsCollections.swift */; };
 		04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */; };
 		04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B088D62C9A870400047A37 /* IngredientsController.swift */; };
+		04B703F62C9937680066042B /* InputWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F52C9937680066042B /* InputWeightView.swift */; };
+		04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F82C9A7F0B0066042B /* MonthPickerView.swift */; };
+		04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */; };
+		04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B704032C9BCF270066042B /* WeightInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,14 +86,14 @@
 		04B088C32C940F4200047A37 /* ForYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouView.swift; sourceTree = "<group>"; };
 		04B088C52C940F6D00047A37 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		04B088C72C94100800047A37 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		04B703F52C9937680066042B /* InputWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWeightView.swift; sourceTree = "<group>"; };
-		04B703F82C9A7F0B0066042B /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
-		04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartView.swift; sourceTree = "<group>"; };
-		04B704032C9BCF270066042B /* WeightInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInfoView.swift; sourceTree = "<group>"; };
 		04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		04B088D22C9A867E00047A37 /* IngredientsCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollections.swift; sourceTree = "<group>"; };
 		04B088D42C9A86B600047A37 /* IngredientsCollectionsviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionsviewCell.swift; sourceTree = "<group>"; };
 		04B088D62C9A870400047A37 /* IngredientsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsController.swift; sourceTree = "<group>"; };
+		04B703F52C9937680066042B /* InputWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWeightView.swift; sourceTree = "<group>"; };
+		04B703F82C9A7F0B0066042B /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartView.swift; sourceTree = "<group>"; };
+		04B704032C9BCF270066042B /* WeightInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +121,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0416C4C92C9C583800846297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0430EEEC2C94418600155C8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +160,7 @@
 		04B088782C92A7DF00047A37 /* Bambinout */ = {
 			isa = PBXGroup;
 			children = (
+				0416C4C92C9C583800846297 /* Model */,
 				04B703F72C9A7EEE0066042B /* Components */,
 				0430EEEC2C94418600155C8A /* Controller */,
 				04B088792C92A7DF00047A37 /* BambinoutApp.swift */,
@@ -205,15 +213,6 @@
 			path = BambinoutUITests;
 			sourceTree = "<group>";
 		};
-		04B703F72C9A7EEE0066042B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				04B703F82C9A7F0B0066042B /* MonthPickerView.swift */,
-				04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		04B088D12C9A866400047A37 /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +221,15 @@
 				04B088D62C9A870400047A37 /* IngredientsController.swift */,
 			);
 			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		04B703F72C9A7EEE0066042B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				04B703F82C9A7F0B0066042B /* MonthPickerView.swift */,
+				04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		04ED81472C9A7E39001E7303 /* ForYou */ = {
