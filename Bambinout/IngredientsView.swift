@@ -17,7 +17,12 @@ struct IngredientsView: View {
                                    }
                                    .pickerStyle(SegmentedPickerStyle())
                                    .padding([.leading, .trailing])
-                                   .padding(.top, 15)
+                                   .padding(.top, 10)
+                                   .onChange(of: selectedCategory) { foodMonthData in
+                                       // Update the foodMonthData property in your IngredientsController
+                                       let ingredientsController = IngredientsController(foodMonthData: foodMonthData)
+                                       ingredientsController.updateFoodMonthData(foodMonthData)
+                                   }
                     IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
                     
                 }
@@ -25,13 +30,11 @@ struct IngredientsView: View {
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                                     Button(action: {
-                                         // Navigate to ProfileView
-                                     }) {
-                                         Image(systemName: "person.circle.fill")
-                                             .resizable()
-                                             .frame(width: 40,height: 40)
-                                             .foregroundColor(.black)
+                        NavigationLink(destination: ProfileView()) {
+                                                  Image(systemName: "person.circle.fill")
+                                                      .resizable()
+                                                      .frame(width: 40, height: 40)
+                                                      .foregroundColor(.black)
                                      }
                                  }
                              }
