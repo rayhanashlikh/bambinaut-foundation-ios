@@ -8,8 +8,8 @@
 import SwiftUI
 struct ForYouView: View {
     @StateObject private var searchDataModel = SearchDataModel()
-//    @State var babyData: BabyData? = getDummyBaby()
-    @State var babyData: BabyData? = nil
+    @State var babyData: BabyData? = getDummyBaby()
+//    @State var babyData: BabyData? = nil
     var body: some View {
         NavigationStack {
            VStack {
@@ -50,7 +50,6 @@ struct ForYouView: View {
                }
            }
         }.searchable(text: $searchDataModel.searchText)
-        .environmentObject(searchDataModel)
     }
 }
 

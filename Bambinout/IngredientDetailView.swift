@@ -29,7 +29,7 @@ struct IngredientDetailView: View {
                     }.scrollIndicators(.hidden)
                     
                     HStack {
-                        Text(ingredient.description)
+                        Text(ingredient.descriptions)
                         Spacer()
                     }
                 }.padding(25)
