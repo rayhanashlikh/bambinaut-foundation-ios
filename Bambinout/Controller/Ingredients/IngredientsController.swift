@@ -10,12 +10,12 @@ import SwiftUI
 class IngredientsController: UIViewController {
     private var searchText: String = "" {
         didSet {
-            filterData(name: searchText)
+            filterData(foodMonthData: self.foodMonthData, name: searchText)
         }
     }
     private var foodMonthData: FoodMonthRange{
         didSet {
-            filterData(foodMonthData: foodMonthData)
+            filterData(foodMonthData: foodMonthData, name: self.searchText)
         }
     }
     private let margin: CGFloat = 16
@@ -78,35 +78,51 @@ class IngredientsController: UIViewController {
         ])
     }
     
-    func filterData(name: String) {
-    if name.isEmpty {
-            filteredData = data
-        } else {
-            filteredData = data.filter { $0.name.lowercased().contains(name.lowercased()) }
-        }
-        ingredientView.reloadData()
-    }
+//    func filterData(name: String) {
+//        print(foodMonthData)
+//        filterData(foodMonthData: foodMonthData)
+//        print(filteredData.count)
+//        if name.isEmpty {
+//          //  filteredData = data
+//        } else {
+//            let temp = filteredData.filter { $0.name.lowercased().contains(name.lowercased()) }
+//            print("temp: ", temp.count)
+//            filteredData = temp
+//        }
+////        DispatchQueue.main.async {
+//            self.ingredientView.reloadData() // Ensure this reloads the UI correctly
+////        }
+//    }
     
 
-    func filterData(foodMonthData: FoodMonthRange) {
-        print("Filtering ingredients...")
+    func filterData(foodMonthData: FoodMonthRange, name: String) {
+//        print("Filtering ingredients...")
 
         // Filter by baby age
         if foodMonthData.min == nil && foodMonthData.max == nil {
-            data = getDummyIngredients(n: 5) // or your full data set
+            
+            if !name.isEmpty {
+                filteredData = getDummyIngredients(n: 5).filter { ingredient in
+                    (name.isEmpty || ingredient.name.lowercased().contains(name.lowercased()))
+                }
+            }else {
+                filteredData = getDummyIngredients(n: 5) // or your full data set
+            }
         } else {
-            data = getDummyIngredients(n: 5).filter { ingredient in
+            filteredData = getDummyIngredients(n: 5).filter { ingredient in
                 (ingredient.min_months >= foodMonthData.min ?? 0) &&
-                (ingredient.max_months <= foodMonthData.max ?? Int.max)
+                (ingredient.max_months <= foodMonthData.max ?? Int.max) &&
+                (name.isEmpty || ingredient.name.lowercased().contains(name.lowercased()))
+                
             }
         }
 
         print("Filtered data count: \(data.count)")
 
         // Assuming `ingredientView` is an observable object that updates the view
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             self.ingredientView.reloadData() // Ensure this reloads the UI correctly
-        }
+        //}
     }
 
     

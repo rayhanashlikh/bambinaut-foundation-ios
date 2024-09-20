@@ -174,9 +174,7 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
             min_months: 8,
             max_months: 10,
             nutrition_ids: [
-                NutritionData(id: 1, name: "Vit A"),
-                NutritionData(id: 2, name: "Vit B"),
-                NutritionData(id: 3, name: "Vit C"),
+                NutritionData(id: 1, name: "Protein")              
             ],
             for_weight_status: -1
         )
