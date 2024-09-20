@@ -33,7 +33,7 @@ struct IngredientDetailView: View {
                         Spacer()
                     }
                 }.padding(25)
-                    .background(.cyan)
+                    .background(Color("background-blue"))
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
             }.navigationTitle("Ingredient detail")

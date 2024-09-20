@@ -87,27 +87,28 @@ class IngredientsController: UIViewController {
         ingredientView.reloadData()
     }
     
-    func filterData(foodMonthData: FoodMonthRange) {
-            //filter by baby age
-            print("filter makanan perbulan apa")
-            if(foodMonthData.min == nil && foodMonthData.max == nil){
-                 data = getDummyIngredients(n: 5)
-            }
-            else
-            {
-                data = data.filter {
-                           (foodMonthData.min == nil || foodMonthData.min == $0.min_months) &&
-                           (foodMonthData.max == nil || foodMonthData.max == $0.max_months)
-                       }
-            }
 
-       
-            print(data.count)
-            
+    func filterData(foodMonthData: FoodMonthRange) {
+        print("Filtering ingredients...")
+
+        // Filter by baby age
+        if foodMonthData.min == nil && foodMonthData.max == nil {
+            data = getDummyIngredients(n: 5) // or your full data set
+        } else {
+            data = getDummyIngredients(n: 5).filter { ingredient in
+                (ingredient.min_months >= foodMonthData.min ?? 0) &&
+                (ingredient.max_months <= foodMonthData.max ?? Int.max)
+            }
+        }
+
+        print("Filtered data count: \(data.count)")
+
+        // Assuming `ingredientView` is an observable object that updates the view
         DispatchQueue.main.async {
-            self.ingredientView.reloadData()
+            self.ingredientView.reloadData() // Ensure this reloads the UI correctly
         }
-        }
+    }
+
     
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
