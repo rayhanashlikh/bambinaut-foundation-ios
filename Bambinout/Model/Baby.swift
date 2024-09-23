@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Baby {
+class Baby: Identifiable {
     var id: UUID
     var latest_weight: Double
     var latest_weight_date: Date?

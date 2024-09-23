@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Allergy {
+class Allergy: Identifiable {
     var id: UUID
     var name: String
     var babies: [Baby]

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Ingredient {
+class Ingredient: Identifiable {
     var id: UUID
     var imageName: String
     var name: String

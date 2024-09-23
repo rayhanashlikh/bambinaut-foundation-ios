@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Nutrition {
+class Nutrition: Identifiable {
     var id: UUID
     var name: String
     var ingredients: [Ingredient]
