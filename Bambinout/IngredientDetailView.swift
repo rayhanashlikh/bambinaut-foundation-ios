@@ -29,11 +29,11 @@ struct IngredientDetailView: View {
                     }.scrollIndicators(.hidden)
                     
                     HStack {
-                        Text(ingredient.description)
+                        Text(ingredient.descriptions)
                         Spacer()
                     }
                 }.padding(25)
-                    .background(.cyan)
+                    .background(Color("background-blue"))
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
             }.navigationTitle("Ingredient detail")

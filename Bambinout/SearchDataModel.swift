@@ -21,7 +21,7 @@ class searchDataModel: ObservableObject { // Changed from 'searchDataModel' to '
         } else {
             filteredIngredients = allIngredients.filter { ingredient in
                 ingredient.name.lowercased().contains(searchText.lowercased()) ||
-                ingredient.description.lowercased().contains(searchText.lowercased())
+                ingredient.descriptions.lowercased().contains(searchText.lowercased())
             }
         }
     }

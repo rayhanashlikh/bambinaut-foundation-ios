@@ -20,12 +20,14 @@ class IngredientsCollectionsviewCell: UICollectionViewCell {
         return iv
     }()
         
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.numberOfLines = 1
-        return label
+    private let button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(named: "button-color")
+        button.isUserInteractionEnabled = false
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 16
+        return button
     }()
     
 //    private let button: UIButton = {
@@ -36,7 +38,7 @@ class IngredientsCollectionsviewCell: UICollectionViewCell {
     
     public func configure (with data: IngredientData) {
         self.myImageView.image = UIImage(named: data.imageName)
-        self.titleLabel.text = data.name
+        self.button.setTitle(data.name, for:.normal)
         self.setupUI()
     }
     
@@ -51,27 +53,28 @@ class IngredientsCollectionsviewCell: UICollectionViewCell {
 //        self.contentView.layer.borderWidth = 1.0
         
         self.addSubview(myImageView)
-        self.addSubview(titleLabel)
+        self.addSubview(button)
         
         myImageView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             myImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             myImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             myImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             myImageView.heightAnchor.constraint(equalTo: myImageView.widthAnchor),
+            button.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 6),
             
-            titleLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 12),
-                    titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor), // Center titleLabel horizontally
-                    titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
-                    titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -8),
+            button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -16),
+            button.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
+            button.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -8),
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.myImageView.image = nil
-        self.titleLabel.text = ""
+        self.button.titleLabel?.text = ""
     }
 }
