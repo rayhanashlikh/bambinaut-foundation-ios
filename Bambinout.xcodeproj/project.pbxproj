@@ -13,14 +13,6 @@
 		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
 		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		0430EEF82C947C7A00155C8A /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF72C947C7A00155C8A /* Observables.swift */; };
-		048775D02C9D2007006812C7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048775CF2C9D2007006812C7 /* DataController.swift */; };
-		048776362C9D2C22006812C7 /* Nutritions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 048776352C9D2C22006812C7 /* Nutritions.plist */; };
-		048776492C9D3F43006812C7 /* Ingredients+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776432C9D3F43006812C7 /* Ingredients+CoreDataClass.swift */; };
-		0487764A2C9D3F43006812C7 /* Ingredients+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776442C9D3F43006812C7 /* Ingredients+CoreDataProperties.swift */; };
-		0487764B2C9D3F43006812C7 /* Nutritions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776452C9D3F43006812C7 /* Nutritions+CoreDataClass.swift */; };
-		0487764C2C9D3F43006812C7 /* Nutritions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776462C9D3F43006812C7 /* Nutritions+CoreDataProperties.swift */; };
-		0487764D2C9D3F43006812C7 /* Allergy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776472C9D3F43006812C7 /* Allergy+CoreDataClass.swift */; };
-		0487764E2C9D3F43006812C7 /* Allergy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776482C9D3F43006812C7 /* Allergy+CoreDataProperties.swift */; };
 		04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE32C9933570067E6F1 /* BabyProfileView.swift */; };
 		04A17CE62C9933710067E6F1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE52C9933710067E6F1 /* ProfileView.swift */; };
 		04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A17CE72C9933980067E6F1 /* AccountView.swift */; };
@@ -50,7 +42,6 @@
 		04C62C702CA0FF0E008EB805 /* Bambinaut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C62C6E2CA0FF0E008EB805 /* Bambinaut.xcdatamodeld */; };
 		04E27CAF2CA1179100A62DAA /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CAE2CA1179100A62DAA /* Ingredients.swift */; };
 		04E27CB12CA118AF00A62DAA /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB02CA118AF00A62DAA /* Allergy.swift */; };
-		04E27CB42CA1197B00A62DAA /* ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB32CA1197B00A62DAA /* ModelContainer.swift */; };
 		04E27CBA2CA1222500A62DAA /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB92CA1222500A62DAA /* Nutrition.swift */; };
 		04E27CBC2CA1257F00A62DAA /* Baby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CBB2CA1257F00A62DAA /* Baby.swift */; };
 /* End PBXBuildFile section */
@@ -119,7 +110,6 @@
 		04C62C6F2CA0FF0E008EB805 /* Bambinaut.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bambinaut.xcdatamodel; sourceTree = "<group>"; };
 		04E27CAE2CA1179100A62DAA /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		04E27CB02CA118AF00A62DAA /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
-		04E27CB32CA1197B00A62DAA /* ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainer.swift; sourceTree = "<group>"; };
 		04E27CB92CA1222500A62DAA /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		04E27CBB2CA1257F00A62DAA /* Baby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baby.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +146,6 @@
 				048776352C9D2C22006812C7 /* Nutritions.plist */,
 				04E27CAE2CA1179100A62DAA /* Ingredients.swift */,
 				04E27CB02CA118AF00A62DAA /* Allergy.swift */,
-				04E27CB32CA1197B00A62DAA /* ModelContainer.swift */,
 				04E27CB92CA1222500A62DAA /* Nutrition.swift */,
 				04E27CBB2CA1257F00A62DAA /* Baby.swift */,
 			);
@@ -431,7 +420,6 @@
 				04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */,
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
-				04E27CB42CA1197B00A62DAA /* ModelContainer.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
 				04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */,
 				04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */,
