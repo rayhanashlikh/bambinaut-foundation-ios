@@ -19,8 +19,11 @@ struct BabyProfileView: View {
 
     var body: some View {
         
-        VStack {
-            NavigationStack {
+        NavigationStack {
+            VStack  {
+                Image(systemName: "figure.child.circle.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
                 Form {
                     HStack {
                         Text("Baby Name")
@@ -53,18 +56,15 @@ struct BabyProfileView: View {
                         ) {
                             Text("Allergies")
                         }
-                        
-                        
                     }
                 }
-                .scrollContentBackground(.hidden)
+            }.scrollContentBackground(.hidden)
                 .background(.tabbarBgBlue)
                 .navigationTitle("Baby Profile")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: Button("Save") {
                     saveChanges()
                 })
-            }
         }
     }
     
