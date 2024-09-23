@@ -63,11 +63,11 @@ struct IngredientsView: View {
 }
 
 
-struct Ingredient: Identifiable {
-    let id = UUID()
-    let name: String
-    let image: String
-}
+//struct Ingredient: Identifiable {
+//    let id = UUID()
+//    let name: String
+//    let image: String
+//}
 struct IngredientsView_Previews: PreviewProvider {
     static var previews: some View {
         IngredientsView()
