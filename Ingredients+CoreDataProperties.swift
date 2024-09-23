@@ -16,13 +16,13 @@ extension Ingredients {
         return NSFetchRequest<Ingredients>(entityName: "Ingredients")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var max_months: Int16
     @NSManaged public var descriptions: String?
+    @NSManaged public var id: UUID?
+    @NSManaged public var max_months: Int16
     @NSManaged public var min_months: Int16
-    @NSManaged public var nutritions: NSSet?
+    @NSManaged public var name: String?
     @NSManaged public var allergy: Allergy?
+    @NSManaged public var nutritions: NSSet?
 
 }
 
