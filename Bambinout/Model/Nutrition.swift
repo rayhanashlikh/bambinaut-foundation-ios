@@ -14,8 +14,9 @@ class Nutrition {
     var name: String
     var ingredients: [Ingredient]
     
-    init(name: String) {
+    init(name: String, ingredients: [Ingredient]) {
         self.id = UUID()
         self.name = name
+        self.ingredients = ingredients
     }
 }
