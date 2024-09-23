@@ -12,8 +12,9 @@ struct GrowthChartView: View {
     var data: [BabyGrowth] = [
         BabyGrowth(day: 7, month: 8, year: 2024, weight: 9),
         BabyGrowth(day: 13, month: 8, year: 2024, weight: 11),
-        BabyGrowth(day: 16, month: 8, year: 2024, weight: 15),
+        BabyGrowth(day: 19, month: 8, year: 2024, weight: 15),
         BabyGrowth(day: 25, month: 8, year: 2024, weight: 20),
+        BabyGrowth(day: 29, month: 8, year: 2024, weight: 18),
     ]
     
     private var dateFormatter: DateFormatter {
@@ -36,7 +37,7 @@ struct GrowthChartView: View {
             )
         }
         .chartXAxis {
-            AxisMarks(values: data.map { $0.date }) { value in
+            AxisMarks(preset: .aligned, values: data.map { $0.date }) { value in
                 if let dateValue = value.as(Date.self) {
                     // Custom format to display month and year
                     AxisValueLabel(dateValue.formatted(.dateTime.month(.abbreviated).year()))

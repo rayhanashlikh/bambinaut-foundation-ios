@@ -3,20 +3,11 @@
     <entity name="Allergy" representedClassName=".Allergy" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="allergy" inverseEntity="Ingredients"/>
-    </entity>
-    <entity name="Ingredients" representedClassName=".Ingredients" syncable="YES">
-        <attribute name="descriptions" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="max_months" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="min_months" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="allergy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Allergy" inverseName="ingredients" inverseEntity="Allergy"/>
-        <relationship name="nutritions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nutritions" inverseName="ingredients" inverseEntity="Nutritions"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify"/>
     </entity>
     <entity name="Nutritions" representedClassName=".Nutritions" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="nutritions" inverseEntity="Ingredients"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify"/>
     </entity>
 </model>
