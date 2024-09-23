@@ -39,7 +39,6 @@
 		04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703F82C9A7F0B0066042B /* MonthPickerView.swift */; };
 		04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */; };
 		04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B704032C9BCF270066042B /* WeightInfoView.swift */; };
-		04C62C702CA0FF0E008EB805 /* Bambinaut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C62C6E2CA0FF0E008EB805 /* Bambinaut.xcdatamodeld */; };
 		04E27CAF2CA1179100A62DAA /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CAE2CA1179100A62DAA /* Ingredients.swift */; };
 		04E27CB12CA118AF00A62DAA /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB02CA118AF00A62DAA /* Allergy.swift */; };
 		04E27CBA2CA1222500A62DAA /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB92CA1222500A62DAA /* Nutrition.swift */; };
@@ -70,14 +69,6 @@
 		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0430EEF72C947C7A00155C8A /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
-		048775CF2C9D2007006812C7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Bambinout/DataController.swift; sourceTree = SOURCE_ROOT; };
-		048776352C9D2C22006812C7 /* Nutritions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Nutritions.plist; sourceTree = "<group>"; };
-		048776432C9D3F43006812C7 /* Ingredients+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataClass.swift"; sourceTree = "<group>"; };
-		048776442C9D3F43006812C7 /* Ingredients+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		048776452C9D3F43006812C7 /* Nutritions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nutritions+CoreDataClass.swift"; sourceTree = "<group>"; };
-		048776462C9D3F43006812C7 /* Nutritions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nutritions+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		048776472C9D3F43006812C7 /* Allergy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataClass.swift"; sourceTree = "<group>"; };
-		048776482C9D3F43006812C7 /* Allergy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04A17CE32C9933570067E6F1 /* BabyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfileView.swift; sourceTree = "<group>"; };
 		04A17CE52C9933710067E6F1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04A17CE72C9933980067E6F1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -107,7 +98,6 @@
 		04B703F82C9A7F0B0066042B /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		04B703FD2C9A8D8F0066042B /* GrowthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartView.swift; sourceTree = "<group>"; };
 		04B704032C9BCF270066042B /* WeightInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInfoView.swift; sourceTree = "<group>"; };
-		04C62C6F2CA0FF0E008EB805 /* Bambinaut.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bambinaut.xcdatamodel; sourceTree = "<group>"; };
 		04E27CAE2CA1179100A62DAA /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		04E27CB02CA118AF00A62DAA /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
 		04E27CB92CA1222500A62DAA /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
@@ -142,8 +132,6 @@
 		0416C4C92C9C583800846297 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				048775CF2C9D2007006812C7 /* DataController.swift */,
-				048776352C9D2C22006812C7 /* Nutritions.plist */,
 				04E27CAE2CA1179100A62DAA /* Ingredients.swift */,
 				04E27CB02CA118AF00A62DAA /* Allergy.swift */,
 				04E27CB92CA1222500A62DAA /* Nutrition.swift */,
@@ -164,13 +152,6 @@
 		04B0886D2C92A7DF00047A37 = {
 			isa = PBXGroup;
 			children = (
-				04C62C6E2CA0FF0E008EB805 /* Bambinaut.xcdatamodeld */,
-				048776432C9D3F43006812C7 /* Ingredients+CoreDataClass.swift */,
-				048776442C9D3F43006812C7 /* Ingredients+CoreDataProperties.swift */,
-				048776452C9D3F43006812C7 /* Nutritions+CoreDataClass.swift */,
-				048776462C9D3F43006812C7 /* Nutritions+CoreDataProperties.swift */,
-				048776472C9D3F43006812C7 /* Allergy+CoreDataClass.swift */,
-				048776482C9D3F43006812C7 /* Allergy+CoreDataProperties.swift */,
 				04B088782C92A7DF00047A37 /* Bambinout */,
 				04B088892C92A7E100047A37 /* BambinoutTests */,
 				04B088932C92A7E100047A37 /* BambinoutUITests */,
@@ -415,7 +396,6 @@
 				04B088C22C940EFD00047A37 /* IngredientsView.swift in Sources */,
 				04B703F62C9937680066042B /* InputWeightView.swift in Sources */,
 				04B703F92C9A7F0B0066042B /* MonthPickerView.swift in Sources */,
-				04C62C702CA0FF0E008EB805 /* Bambinaut.xcdatamodeld in Sources */,
 				04A17CE82C9933980067E6F1 /* AccountView.swift in Sources */,
 				04A17CEC2C993E230067E6F1 /* InputAllergiesView.swift in Sources */,
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
@@ -758,20 +738,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		04C62C6E2CA0FF0E008EB805 /* Bambinaut.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				04C62C6F2CA0FF0E008EB805 /* Bambinaut.xcdatamodel */,
-			);
-			currentVersion = 04C62C6F2CA0FF0E008EB805 /* Bambinaut.xcdatamodel */;
-			name = Bambinaut.xcdatamodeld;
-			path = "/Users/mac/Documents/xcode/bambinaut-foundation-ios/Bambinout/Bambinaut.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 04B0886E2C92A7DF00047A37 /* Project object */;
 }
