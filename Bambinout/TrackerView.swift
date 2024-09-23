@@ -69,7 +69,7 @@ struct TrackerView: View {
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: ProfileView().toolbar(.hidden, for: .tabBar)) {
+                            NavigationLink(destination: BabyProfileView().toolbar(.hidden, for: .tabBar)) {
                                 Image(systemName: "person.circle.fill")
                                     .resizable()
                                     .frame(width: 40, height: 40)

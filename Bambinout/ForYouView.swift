@@ -41,7 +41,7 @@ struct ForYouView: View {
            .navigationTitle("For You")
            .toolbar() {
                ToolbarItem(placement: .topBarTrailing) {
-                   NavigationLink(destination: ProfileView()) {
+                   NavigationLink(destination: BabyProfileView()) {
                        Image(systemName: "person.circle.fill")
                            .resizable()
                            .frame(width: 40, height: 40)
