@@ -8,38 +8,49 @@ struct IngredientsView: View {
     var body: some View {
         ZStack{
             NavigationStack {
-                VStack {
+                VStack(spacing: 0) {
                     // Category Filter
                     Picker("Category", selection: $selectedCategory) {
-                                       ForEach(categories, id: \.self) { category in
-                                           Text(category.title).tag(category)
-                                       }
-                                   }
-                                   .pickerStyle(SegmentedPickerStyle())
-                                   .padding([.leading, .trailing])
-                                   .padding(.top, 10)
-                                   .onChange(of: selectedCategory) { foodMonthData in
-                                       // Update the foodMonthData property in your IngredientsController
-                                       let ingredientsController = IngredientsController(foodMonthData: foodMonthData)
-                                       ingredientsController.updateFoodMonthData(foodMonthData)
-                                   }
+                        ForEach(categories, id: \.self) { category in
+                            Text(category.title).tag(category)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal)
+                    .padding(.top, 15)
+                    .padding(.bottom, 10)
+                    .onChange(of: selectedCategory) { foodMonthData in
+                        // Update the foodMonthData property in your IngredientsController
+                        let ingredientsController = IngredientsController(foodMonthData: foodMonthData)
+                        ingredientsController.updateFoodMonthData(foodMonthData)
+                    }
                     IngredientsCollections(search: $searchDataModel.searchText,foodMonthData: $selectedCategory)
                     
                 }
-                .navigationTitle("Ingredients")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        VStack {
+                            Spacer()
+                            Text("Ingredients")
+                                .font(.largeTitle)
+                                .bold()
+                        }
+                    }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: ProfileView()) {
-                                                  Image(systemName: "person.circle.fill")
-                                                      .resizable()
-                                                      .frame(width: 40, height: 40)
-                                                      .foregroundColor(.black)
-                                     }
-                                 }
-                             }
-            }.searchable(text: $searchDataModel.searchText)
-                .environmentObject(searchDataModel)
+                        VStack {
+                            Spacer()
+                            NavigationLink(destination: ProfileView()) {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 33, height: 33)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        .searchable(text: $searchDataModel.searchText)
+                    }
+                }
+            }.environmentObject(searchDataModel)
         }
     }
 }

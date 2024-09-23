@@ -36,6 +36,7 @@ struct IngredientData {
 
 struct BabyData {
     var id: Int
+    var name: String
     var allergy_ids: [Int]
     var latest_weight: Double
     var latest_weight_date: Date?
@@ -64,6 +65,15 @@ struct BabyData {
         } else {
             return 0
         }
+    }
+    
+    // Fungsi untuk memformat latest_weight_date
+    func formattedLatestWeightDate() -> String {
+        guard let date = latest_weight_date else { return "No Date" }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long // Format "11 August 2024"
+        return formatter.string(from: date)
     }
 }
 
@@ -193,6 +203,7 @@ func getDummyIngredients(n: Int) -> [IngredientData] {
 func getDummyBaby() -> BabyData {
     return BabyData(
         id: 1,
+        name: "Johny",
         allergy_ids: [],
         latest_weight: 1.3,
         latest_weight_date: getDate(date: "2024-09-13"),
