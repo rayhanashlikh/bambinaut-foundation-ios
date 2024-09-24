@@ -117,7 +117,7 @@ class IngredientsController: UIViewController {
             }
         }
 
-        print("Filtered data count: \(data.count)")
+//        print("Filtered data count: \(data.count)")
 
         // Assuming `ingredientView` is an observable object that updates the view
         //DispatchQueue.main.async {
@@ -160,13 +160,13 @@ extension IngredientsController: UICollectionViewDelegate, UICollectionViewDataS
             let ingredient = self.filteredData[indexPath.row]
             
             // Create the SwiftUI view with the selected ingredient
-            let detailView = IngredientDetailView(ingredient: ingredient)
+//            let detailView = IngredientDetailView(ingredient: ingredient)
             
             // Create a UIHostingController with the SwiftUI view
-            let hostingController = UIHostingController(rootView: detailView)
-            
-            // Push the hostingController onto the navigation stack
-            self.navigationController?.pushViewController(hostingController, animated: true)
+//            let hostingController = UIHostingController(rootView: detailView)
+//            
+//            // Push the hostingController onto the navigation stack
+//            self.navigationController?.pushViewController(hostingController, animated: true)
         }
 }
 

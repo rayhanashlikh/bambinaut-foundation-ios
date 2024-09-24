@@ -6,18 +6,65 @@
 //
 
 import SwiftUI
+import SwiftData
 struct ForYouView: View {
-    @StateObject private var searchDataModel = SearchDataModel()
-    @State var babyData: BabyData? = getDummyBaby()
+    @Environment(\.modelContext) private var context
+    @State private var search: String = ""
+    @Query var babyData: [Baby]
+    @Query let ingredients: [Ingredient]
 //    @State var babyData: BabyData? = nil
+    //            !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
+    //            babyData.getAgeMonth() ?? 0 >= $0.min_months &&
+    //            babyData.getAgeMonth() ?? 0 <= $0.max_months &&
+    //            (babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true)
+    var filteredData: [Ingredient] = []
+    
+    mutating func filterData(baby: Baby, search: String) {
+        let ageMonth: Int = baby.getAgeMonth() ?? 0
+        let weightStatus = baby.getWeightStatus()
+        
+        let predicate = #Predicate<Ingredient> { ingredient in
+            ((ingredient.allergy?.status) != nil) &&
+            ingredient.min_months <= ageMonth &&
+            ingredient.max_months >= ageMonth &&
+            weightStatus != 0 ? ingredient.for_weight_status == weightStatus : true &&
+            ingredient.name.localizedStandardContains(search)
+        }
+        
+        do {
+            try filteredData = ingredients.filter(predicate)
+        } catch {
+            print("Error filter")
+        }
+    }
+    init() {
+        if (babyData.count == 0) {
+            let baby = Baby(
+                latest_weight: 20,
+                latest_weight_date: getDate(date: "2024-10-13"),
+                birth_date: getDate(date: "2024-01-22"),
+                gender: 0,
+                name: "Budi"
+            )
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save data: \(error)")
+        }
+        if (babyData.first != nil) {
+            filterData(baby: babyData.first!, search: search)
+        }
+    }
     var body: some View {
         NavigationStack {
            VStack {
-               if let unwrappedBabyData = babyData {
-                   ForYouCollections(search: $searchDataModel.searchText, babyData: Binding<BabyData>(
-                       get: { unwrappedBabyData },
-                       set: { babyData = $0 }
-                   ))
+               ForEach(filteredData, id: \.self) { ing in
+                   Text(ing.name)
+               }
+               if babyData.first != nil {
+                   ForYouCollections(search: search, babyData: babyData.first!
+                   )
                } else {
                    VStack {
                        NavigationLink(destination: BabyProfileView()) {
@@ -49,7 +96,7 @@ struct ForYouView: View {
                    }
                }
            }
-        }.searchable(text: $searchDataModel.searchText)
+        }.searchable(text: $search)
     }
 }
 

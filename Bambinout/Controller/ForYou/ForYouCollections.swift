@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct ForYouCollections: UIViewControllerRepresentable {
-    @Binding var search: String
-    @Binding var babyData: BabyData
+//    var babyData: Baby
+    
+    @Binding var data: [Ingredient]
+    var search: String
     
     func makeUIViewController(context: Context) -> ForYouViewController {
-        return ForYouViewController(babyData: babyData)
+        return ForYouViewController(data: data, search: search)
     }
 
     func updateUIViewController(_ uiViewController: ForYouViewController, context: Context) {

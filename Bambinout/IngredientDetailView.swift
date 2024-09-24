@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct IngredientDetailView: View {
-    let ingredient: IngredientData
+    let ingredient: Ingredient
     
     var body: some View {
         NavigationStack {
@@ -19,7 +19,7 @@ struct IngredientDetailView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(ingredient.nutrition_ids, id: \.self) { item in
+                            ForEach(ingredient.nutritions, id: \.self) { item in
                                 Text(item.name)
                                     .padding(10)
                                     .background(Color.white)
@@ -42,7 +42,7 @@ struct IngredientDetailView: View {
     }
 }
 
-#Preview {
-    IngredientDetailView(ingredient: getDummyIngredients(n: 1)[0])
-}
+//#Preview {
+//    IngredientDetailView(ingredient: getDummyIngredients(n: 1)[0])
+//}
 

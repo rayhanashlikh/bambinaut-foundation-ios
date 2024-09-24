@@ -34,7 +34,7 @@ class ForYouCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    public func configure (with data: IngredientData) {
+    public func configure (with data: Ingredient) {
         self.myImageView.image = UIImage(named: data.imageName)
         self.button.setTitle(data.name, for:.normal)
         self.setupUI()
@@ -73,7 +73,7 @@ class ForYouCollectionViewCell: UICollectionViewCell {
             button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -16),
             button.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
             button.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -8),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6)
         ])
     }
     

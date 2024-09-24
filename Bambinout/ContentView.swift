@@ -6,6 +6,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query var nutritions: [Nutrition]
     @Query var allergies: [Allergy]
+    @Query var ingredients: [Ingredient]
     
     var body: some View {
         TabBarView().onAppear() {
@@ -15,11 +16,6 @@ struct ContentView: View {
                     // Save newNutrition to your SwiftData context
                     // Assuming you have a context variable
                     context.insert(newNutrition)
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Failed to save \(nutrition): \(error)")
-                    }
                 }
             }
             do {
@@ -35,12 +31,34 @@ struct ContentView: View {
                     // Save newNutrition to your SwiftData context
                     // Assuming you have a context variable
                     context.insert(newAllergy)
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Failed to save \(allergy): \(error)")
-                    }
                 }
+            }
+            if ingredients.count == 0 {
+                for ingredient in seedIngredients {
+                    let allergy = ingredient.allergen != nil ? allergies.first(where: { $0.name == ingredient.allergen }) : nil
+                    let associatedNutritions = nutritions.filter { ingredient.nutritions.contains($0.name) }
+                    
+                    let ingredient = Ingredient(
+                        imageName: ingredient.name.lowercased().replacingOccurrences(of: " ", with: "_"), // Example for imageName
+                        name: ingredient.name,
+                        descriptions: ingredient.description,
+                        allergy: allergy,
+                        min_months: ingredient.minMonths,
+                        max_months: ingredient.maxMonths,
+                        nutritions: [],
+                        for_weight_status: ingredient.weightSuitability
+                    )
+                    for nut in associatedNutritions {
+                        ingredient.nutritions.append(nut)
+                    }
+                
+                    context.insert(ingredient)
+                }
+            }
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save data: \(error)")
             }
         }
     }
