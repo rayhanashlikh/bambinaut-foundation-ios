@@ -43,6 +43,7 @@
 		04E27CB12CA118AF00A62DAA /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB02CA118AF00A62DAA /* Allergy.swift */; };
 		04E27CBA2CA1222500A62DAA /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CB92CA1222500A62DAA /* Nutrition.swift */; };
 		04E27CBC2CA1257F00A62DAA /* Baby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CBB2CA1257F00A62DAA /* Baby.swift */; };
+		04E27CBE2CA24A4E00A62DAA /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E27CBD2CA24A4E00A62DAA /* Seeds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		04E27CB02CA118AF00A62DAA /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
 		04E27CB92CA1222500A62DAA /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		04E27CBB2CA1257F00A62DAA /* Baby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baby.swift; sourceTree = "<group>"; };
+		04E27CBD2CA24A4E00A62DAA /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				04E27CB02CA118AF00A62DAA /* Allergy.swift */,
 				04E27CB92CA1222500A62DAA /* Nutrition.swift */,
 				04E27CBB2CA1257F00A62DAA /* Baby.swift */,
+				04E27CBD2CA24A4E00A62DAA /* Seeds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				04E27CBC2CA1257F00A62DAA /* Baby.swift in Sources */,
 				04B088D32C9A867E00047A37 /* IngredientsCollections.swift in Sources */,
 				04A17CE42C9933570067E6F1 /* BabyProfileView.swift in Sources */,
+				04E27CBE2CA24A4E00A62DAA /* Seeds.swift in Sources */,
 				04B088D52C9A86B600047A37 /* IngredientsCollectionsviewCell.swift in Sources */,
 				04E27CBA2CA1222500A62DAA /* Nutrition.swift in Sources */,
 				04A17CEA2C9933A40067E6F1 /* ChangePasswordView.swift in Sources */,
