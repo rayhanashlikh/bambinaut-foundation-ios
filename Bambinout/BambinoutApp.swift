@@ -14,9 +14,12 @@ struct BambinoutApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Ingredient.self,
-                              Allergy.self,
-                              Nutrition.self,
-                              Baby.self])
+        .modelContainer(for: [
+            Ingredient.self,
+            Allergy.self,
+            Nutrition.self,
+            Baby.self
+        ])
+        
     }
 }

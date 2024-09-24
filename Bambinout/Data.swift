@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CoreData
+import SwiftData
 
 func getDate(date: String) -> Date? {
     let dateFormatter = DateFormatter()
@@ -273,3 +273,21 @@ func getBabyOptimalWeightRange(age: Int, gender: Int) -> WeightRange {
     let ret = optimalWeightRange[gender][String(age)]
     return ret ?? WeightRange(min: 5.7, max: 8.2)
 }
+
+
+
+//func insertInitialData() {
+//    @Query() var ingredients: [Ingredient]
+//    
+//    if ingredients.count == 0 {
+//        
+//    }
+//}
+
+//private var ingredientData: [Ingredient] = [
+//    {
+//        
+//    }
+//]
+
+
