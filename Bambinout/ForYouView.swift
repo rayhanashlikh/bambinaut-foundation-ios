@@ -9,62 +9,38 @@ import SwiftUI
 import SwiftData
 struct ForYouView: View {
     @Environment(\.modelContext) private var context
-    @State private var search: String = ""
+    @StateObject private var recommended = RecommendationDataModel()
     @Query var babyData: [Baby]
     @Query let ingredients: [Ingredient]
-//    @State var babyData: BabyData? = nil
-    //            !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
-    //            babyData.getAgeMonth() ?? 0 >= $0.min_months &&
-    //            babyData.getAgeMonth() ?? 0 <= $0.max_months &&
-    //            (babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true)
-    var filteredData: [Ingredient] = []
+    @State private var showView = false
     
-    mutating func filterData(baby: Baby, search: String) {
+    func filterData(baby: Baby) {
         let ageMonth: Int = baby.getAgeMonth() ?? 0
         let weightStatus = baby.getWeightStatus()
-        
+        print("haha\n\(ingredients.count)\n\(ageMonth)\n\(weightStatus)")
         let predicate = #Predicate<Ingredient> { ingredient in
-            ((ingredient.allergy?.status) != nil) &&
+            (ingredient.allergy == nil || ingredient.allergy!.status == false) &&
             ingredient.min_months <= ageMonth &&
             ingredient.max_months >= ageMonth &&
-            weightStatus != 0 ? ingredient.for_weight_status == weightStatus : true &&
-            ingredient.name.localizedStandardContains(search)
+            (ingredient.for_weight_status == 0 ? true : ingredient.for_weight_status == weightStatus)
         }
         
         do {
-            try filteredData = ingredients.filter(predicate)
+            try recommended.data = ingredients.filter(predicate)
+            print(recommended.data.count)
         } catch {
             print("Error filter")
-        }
-    }
-    init() {
-        if (babyData.count == 0) {
-            let baby = Baby(
-                latest_weight: 20,
-                latest_weight_date: getDate(date: "2024-10-13"),
-                birth_date: getDate(date: "2024-01-22"),
-                gender: 0,
-                name: "Budi"
-            )
-        }
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save data: \(error)")
-        }
-        if (babyData.first != nil) {
-            filterData(baby: babyData.first!, search: search)
         }
     }
     var body: some View {
         NavigationStack {
            VStack {
-               ForEach(filteredData, id: \.self) { ing in
-                   Text(ing.name)
-               }
+//               for ingredient in ingredients {
+//                   Text("\((!ingredient.allergy || !ingredient.allergy!.status))")
+//               }
+               Text("\(showView)")
                if babyData.first != nil {
-                   ForYouCollections(search: search, babyData: babyData.first!
-                   )
+                   ForYouCollections(data: $recommended.data, search: recommended.searchText)
                } else {
                    VStack {
                        NavigationLink(destination: BabyProfileView()) {
@@ -88,15 +64,50 @@ struct ForYouView: View {
            .navigationTitle("For You")
            .toolbar() {
                ToolbarItem(placement: .topBarTrailing) {
-                   NavigationLink(destination: BabyProfileView()) {
-                       Image(systemName: "person.circle.fill")
-                           .resizable()
-                           .frame(width: 40, height: 40)
-                           .foregroundColor(.black)
+                   NavigationLink(destination: BabyProfileView(), isActive: $showView) {
+                       Button(action: {
+                           self.showView = true
+                       }, label: {
+                           Image(systemName: "person.circle.fill")
+                               .resizable()
+                               .frame(width: 40, height: 40)
+                               .foregroundColor(.black)
+                       })
+                       
                    }
                }
            }
-        }.searchable(text: $search)
+        }.searchable(text: $recommended.searchText)
+            .onDisappear {
+                // Reset or refresh any state if necessary
+                recommended.data = [] // Clear or reset data if needed
+                print("ForYouView disappeared")
+            }
+        .onAppear(perform: {
+            for allergy in recommended.allergies {
+                print("\(allergy.name) - \(allergy.status)")
+            }
+            if (babyData.count == 0) {
+                let baby = Baby(
+                    latest_weight: 20,
+                    latest_weight_date: getDate(date: "2024-10-13"),
+                    birth_date: getDate(date: "2024-01-22"),
+                    gender: 0,
+                    name: "Budi"
+                )
+                context.insert(baby)
+                do {
+                    try context.save()
+                } catch {
+                    print("Failed to save data: \(error)")
+                }
+            }
+            if (babyData.first != nil) {
+                print("halo")
+                filterData(baby: babyData.first!)
+            }
+            
+        })
     }
 }
 

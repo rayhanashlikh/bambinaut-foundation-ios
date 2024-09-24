@@ -18,13 +18,6 @@ struct ContentView: View {
                     context.insert(newNutrition)
                 }
             }
-            do {
-                try context.delete(model : Allergy.self)
-            }catch {
-                
-            }
-            
-//            context.delete(model : Allergy.self)
             if allergies.count == 0 {
                 for allergy in seedAllergies {
                     let newAllergy = Allergy(name: allergy,  status: false, ingredients: [])
@@ -33,13 +26,19 @@ struct ContentView: View {
                     context.insert(newAllergy)
                 }
             }
+            do {
+                try context.delete(model: Ingredient.self)
+            } catch {
+                
+            }
             if ingredients.count == 0 {
                 for ingredient in seedIngredients {
                     let allergy = ingredient.allergen != nil ? allergies.first(where: { $0.name == ingredient.allergen }) : nil
-                    let associatedNutritions = nutritions.filter { ingredient.nutritions.contains($0.name) }
-                    
+                    let associatedNutritions = nutritions.filter { nutrition in ingredient.nutritions.contains(nutrition.name) }
                     let ingredient = Ingredient(
-                        imageName: ingredient.name.lowercased().replacingOccurrences(of: " ", with: "_"), // Example for imageName
+                        imageName: ingredient.name.lowercased().replacingOccurrences(of: " ", with: "_")
+                            .replacingOccurrences(of: ")", with: "_")
+                            .replacingOccurrences(of: "(", with: ""), // Example for imageName
                         name: ingredient.name,
                         descriptions: ingredient.description,
                         allergy: allergy,
