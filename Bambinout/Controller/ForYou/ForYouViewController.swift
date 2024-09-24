@@ -8,17 +8,17 @@ class ForYouViewController: UIViewController {
             filterData(name: searchText)
         }
     }
-    private let margin: CGFloat = 16
+//    private let margin: CGFloat = 16
     
     private var data: [IngredientData] = []
     private var filteredData: [IngredientData] = []
     private var babyData: BabyData;
     
-    private lazy var forYouView: UICollectionView = {
+    private var forYouView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: margin, left:  margin, bottom:  margin, right:  margin)
+        layout.sectionInset = UIEdgeInsets(top: 16, left:  16, bottom:  16, right:  16)
         
         let forYouView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         forYouView.backgroundColor = .systemBackground
@@ -156,7 +156,7 @@ extension ForYouViewController: UICollectionViewDelegateFlowLayout {
         // Calculate the width of each item
         let totalSpacing = (collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing * 1 // 1 space between items
         let contentWidth = collectionView.bounds.width
-        let itemWidth = (contentWidth - (margin * 2) - totalSpacing) / 2.0
+        let itemWidth = (contentWidth - (16 * 2) - totalSpacing) / 2.0
         let itemHeight = itemWidth + 40
         // Set a height for the items, or calculate dynamically if needed
         

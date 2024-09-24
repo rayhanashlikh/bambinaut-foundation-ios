@@ -26,7 +26,7 @@ struct MonthPickerView: View {
                 }
                 .padding([.leading, .trailing], 10)
                 .padding([.top, .bottom], 10)
-                .background(Color("list-color-blue"))
+                .background(Color.tabbarBgBlue)
                 .cornerRadius(8)
             }
             .sheet(isPresented: $showingPicker) {
@@ -42,6 +42,7 @@ struct MonthPickerView: View {
                         
                         Spacer()
                     }
+                    .background(Color.tabbarBgBlue)
                     .navigationTitle("Pick a Month")
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
