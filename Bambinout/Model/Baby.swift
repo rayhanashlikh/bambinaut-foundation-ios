@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 class Baby: Identifiable {
@@ -15,17 +16,20 @@ class Baby: Identifiable {
     var latest_weight_date: Date?
     var birth_date: Date?
     var gender: Int // 0 = female; 1 = male
+    var name: String
     
     @Relationship(inverse: \Allergy.babies)
     var allergies: [Allergy]
+
     
-    init(allergies: [Allergy], latest_weight: Double, latest_weight_date: Date? = nil, birth_date: Date? = nil, gender: Int) {
+    init(allergies: [Allergy], latest_weight: Double, latest_weight_date: Date? = nil, birth_date: Date? = nil, gender: Int, name:String) {
         self.id = UUID()
         self.allergies = allergies
         self.latest_weight = latest_weight
         self.latest_weight_date = latest_weight_date
         self.birth_date = birth_date
         self.gender = gender
+        self.name = name
     }
     
     //mendapatkan umur bayi dalam bulan berdasarkan tanggal lahir
@@ -51,4 +55,6 @@ class Baby: Identifiable {
             return 0
         }
     }
+    
+
 }
