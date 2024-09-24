@@ -11,14 +11,24 @@ import UIKit
 class IngredientsCollectionsviewCell: UICollectionViewCell {
     static let identifier = "IngredientCollectionViewCell"
     
+    
+    private let imageViewContainer: UIView = {
+         let view = UIView()
+         view.layer.cornerRadius = 16
+         view.clipsToBounds = true
+         view.backgroundColor = .white // Change this to your desired color
+         return view
+     }()
+    
     private let myImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .white
-        iv.clipsToBounds = true
+        iv.clipsToBounds = true  
         return iv
     }()
+    
         
     private let button: UIButton = {
         let button = UIButton()
@@ -51,18 +61,28 @@ class IngredientsCollectionsviewCell: UICollectionViewCell {
 //        self.contentView.
 //        self.contentView.layer.cornerRadius = 20.0
 //        self.contentView.layer.borderWidth = 1.0
+        self.contentView.addSubview(imageViewContainer)
+       imageViewContainer.addSubview(myImageView)
         
+
         self.addSubview(myImageView)
         self.addSubview(button)
         
+        imageViewContainer.translatesAutoresizingMaskIntoConstraints = false
         myImageView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            myImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            myImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-            myImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            myImageView.heightAnchor.constraint(equalTo: myImageView.widthAnchor),
+            imageViewContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            imageViewContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            imageViewContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            imageViewContainer.heightAnchor.constraint(equalTo: imageViewContainer.widthAnchor),
+           
+            myImageView.topAnchor.constraint(equalTo: imageViewContainer.topAnchor, constant: 10),
+            myImageView.leadingAnchor.constraint(equalTo: imageViewContainer.leadingAnchor, constant: 10),
+            myImageView.trailingAnchor.constraint(equalTo: imageViewContainer.trailingAnchor, constant: -10),
+            myImageView.bottomAnchor.constraint(equalTo: imageViewContainer.bottomAnchor, constant: -10),
+                        
             button.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 6),
             
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
