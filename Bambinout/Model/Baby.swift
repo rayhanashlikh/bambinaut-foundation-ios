@@ -17,15 +17,13 @@ class Baby: Identifiable {
     var birth_date: Date?
     var gender: Int // 0 = female; 1 = male
     var name: String
-    var allergies: [Allergy]
     
-
 //    @Relationship(inverse: \Allergy.babies)
 //    var allergies: [Allergy]
-
-    init(allergies: [Allergy], latest_weight: Double, latest_weight_date: Date? = nil, birth_date: Date? = nil, gender: Int, name:String) {
+    
+    init(latest_weight: Double, latest_weight_date: Date? = nil, birth_date: Date? = nil, gender: Int, name: String) {
         self.id = UUID()
-        self.allergies = allergies
+//        self.allergies = allergies
         self.latest_weight = latest_weight
         self.latest_weight_date = latest_weight_date
         self.birth_date = birth_date

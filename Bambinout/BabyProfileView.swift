@@ -88,7 +88,7 @@ struct BabyProfileView: View {
         
         let inpAllergies: [Allergy] = fetchAllergies(for: selectedAllergies)
         
-        let inpBaby = Baby(allergies: inpAllergies, latest_weight: 10.0, latest_weight_date: Date(), birth_date: birthDate, gender: gender, name: babyName)
+        let inpBaby = Baby( latest_weight: 10.0, latest_weight_date: Date(), birth_date: birthDate, gender: gender, name: babyName)
             context.insert(inpBaby)
 
             do {
