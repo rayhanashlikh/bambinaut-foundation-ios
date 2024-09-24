@@ -42,7 +42,7 @@ struct TrackerView: View {
                             GrowthChartView(month: $month, data: [
                                 BabyGrowth(day: 7, month: 8, year: 2024, weight: 9),
                                 BabyGrowth(day: 13, month: 8, year: 2024, weight: 11),
-                                BabyGrowth(day: 16, month: 8, year: 2024, weight: 15),
+                                BabyGrowth(day: 19, month: 8, year: 2024, weight: 15),
                                 BabyGrowth(day: 25, month: 8, year: 2024, weight: 20),
                                 BabyGrowth(day: 30, month: 8, year: 2024, weight: 15),
                                 BabyGrowth(day: 1, month: 9, year: 2024, weight: 20),
