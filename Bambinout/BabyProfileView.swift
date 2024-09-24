@@ -14,7 +14,7 @@ struct BabyProfileView: View {
     @State var babyName = ""
     @State var birthDate = Date()
     @State private var selectedGender: Gender = .male
-    
+    @State private var showAlert = false
     @State private var selectedAllergies: Set<UUID> = []
     @Query var allergies : [Allergy]
     @Query var currentBaby : [Baby]
@@ -36,6 +36,8 @@ struct BabyProfileView: View {
                     .resizable()
                     .frame(width: 100, height: 100)
                 Form {
+//                    Text("\(currentBaby.first?.name ?? "Kosong")")
+//                    Text("\(currentBaby.first?.gender ?? -1)")
                     HStack {
                         Text("Baby Name")
                         TextField(text: $babyName, prompt: Text("Baby Name")) {
@@ -60,13 +62,9 @@ struct BabyProfileView: View {
                             .frame(width: 200, alignment: .trailing)
                     }
                     HStack {
-                        NavigationLink(destination: InputAllergiesView(selectedAllergies: $selectedAllergies)) {
-                                Text("Allergies")
-                            }
-                            .buttonStyle(PlainButtonStyle())
-//                        NavigationLink(destination: InputAllergiesView()) {
-//                            Text("Allergies")
-//                        }
+                        NavigationLink(destination: InputAllergiesView()) {
+                            Text("Allergies")
+                        }
                     }
                 }
             }
@@ -77,6 +75,12 @@ struct BabyProfileView: View {
             .navigationBarItems(trailing: Button("Save") {
                 saveChanges()
             })
+            .alert("Important!", isPresented: $showAlert)
+            {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Please enter a name for the baby.")
+            }
             .onAppear {
                 loadBabyData()
             }
@@ -84,27 +88,56 @@ struct BabyProfileView: View {
     }
     
     private func saveChanges() {
-        let gender = (selectedGender == .female) ? 1 : 0
+        var tempCheck = currentBaby.first?.name ?? nil
         
-        let inpAllergies: [Allergy] = fetchAllergies(for: selectedAllergies)
+        let existingBaby = currentBaby.first
         
-        let inpBaby = Baby( latest_weight: 10.0, latest_weight_date: Date(), birth_date: birthDate, gender: gender, name: babyName)
-            context.insert(inpBaby)
-
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
+        if babyName.isEmpty {
+            showAlert = true // Show alert if babyName is empty
+        } else {
+            let gender = (selectedGender == .female) ? 1 : 0
+            
+            if let baby = existingBaby {
+                // Update existing baby
+                baby.name = babyName
+                baby.gender = gender
+                baby.birth_date = birthDate
+                
+                // Save changes
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else {
+                // Create new baby if none exists
+                let inpBaby = Baby(latest_weight: 10.0, latest_weight_date: Date(), birth_date: birthDate, gender: gender, name: babyName)
+                context.insert(inpBaby)
+                
+                // Save new baby
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
-            dismiss()
+        }
     }
     
     private func fetchAllergies(for selectedIDs: Set<UUID>) -> [Allergy] {
-        return allergies.filter { selectedIDs.contains($0.id) } // Filter allergies based on selectedIDs
+        return allergies.filter { selectedIDs.contains($0.id) }
     }
     
     private func loadBabyData() {
+        var tempCheck = currentBaby.first?.name ?? nil
         
+        if tempCheck != nil{
+            var babyExist = currentBaby.first
+            
+            babyName = babyExist!.name
+            birthDate = babyExist?.birth_date ?? Date()
+            selectedGender = babyExist?.gender == 1 ? .female : .male
+        }
     }
 
 //    private func fetchBaby(by id: UUID) -> Baby? {

@@ -12,13 +12,15 @@ import SwiftData
 class Allergy: Identifiable {
     var id: UUID
     var name: String
+    var status: Bool = false
     
     @Relationship()
     var ingredients: [Ingredient]
     
-    init(name: String, ingredients: [Ingredient]) {
+    init(name: String, status: Bool, ingredients: [Ingredient]) {
         self.id = UUID()
         self.name = name
         self.ingredients = ingredients
+        self.status = status
     }
 }

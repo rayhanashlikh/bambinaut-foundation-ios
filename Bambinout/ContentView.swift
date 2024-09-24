@@ -22,10 +22,16 @@ struct ContentView: View {
                     }
                 }
             }
+            do {
+                try context.delete(model : Allergy.self)
+            }catch {
+                
+            }
             
+//            context.delete(model : Allergy.self)
             if allergies.count == 0 {
                 for allergy in seedAllergies {
-                    let newAllergy = Allergy(name: allergy, ingredients: [])
+                    let newAllergy = Allergy(name: allergy,  status: false, ingredients: [])
                     // Save newNutrition to your SwiftData context
                     // Assuming you have a context variable
                     context.insert(newAllergy)

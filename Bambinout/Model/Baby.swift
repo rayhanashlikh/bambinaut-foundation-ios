@@ -17,6 +17,7 @@ class Baby: Identifiable {
     var birth_date: Date?
     var gender: Int // 0 = female; 1 = male
     var name: String
+//    var allergies : [Allergy]
     
 //    @Relationship(inverse: \Allergy.babies)
 //    var allergies: [Allergy]
