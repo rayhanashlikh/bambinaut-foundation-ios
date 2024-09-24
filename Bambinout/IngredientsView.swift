@@ -40,7 +40,7 @@ struct IngredientsView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         VStack {
                             Spacer()
-                            NavigationLink(destination: ProfileView()) {
+                            NavigationLink(destination: BabyProfileView()) {
                                 Image(systemName: "person.circle.fill")
                                     .resizable()
                                     .frame(width: 33, height: 33)
