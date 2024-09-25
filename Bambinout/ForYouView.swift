@@ -35,7 +35,17 @@ struct ForYouView: View {
         NavigationStack {
            VStack {
                if babyData.first != nil {
-                   ForYouCollections(data: $recommended.data, search: recommended.searchText)
+                   if (recommended.data.count > 0) {
+                       
+                       ForYouCollections(data: $recommended.data, search: recommended.searchText)
+                   } else {
+                       VStack {
+                           HStack {
+                               Image(systemName: "info.circle")
+                               Text("No recommended ingredients for your baby").font(.caption).multilineTextAlignment(.leading)
+                           }.foregroundColor(.gray)
+                       }.padding(.horizontal, 20)
+                   }
                } else {
                    VStack {
                        NavigationLink(destination: BabyProfileView()) {
