@@ -11,7 +11,11 @@ class ForYouViewController: UIViewController {
         }
     }
     
-    private var data: [Ingredient]
+    @Published private var data: [Ingredient] {
+        didSet {
+            forYouView.reloadData()
+        }
+    }
     private var filteredData: [Ingredient] = []
     
     private var forYouView: UICollectionView = {
@@ -67,6 +71,7 @@ class ForYouViewController: UIViewController {
     
     func filterData(name: String) {
 //        print("filter: \(name) | count: \(data.count)")
+//        print("\(data.count)")
         if name.isEmpty {
             filteredData = data
         } else {
@@ -77,6 +82,10 @@ class ForYouViewController: UIViewController {
     
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
+    }
+    
+    func updateData(_ data: [Ingredient]) {
+        self.data = data
     }
 }
 

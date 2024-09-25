@@ -12,6 +12,9 @@ struct IngredientDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(25)
                     HStack {
                         Text(ingredient.name)
                             .font(.title)
@@ -31,7 +34,7 @@ struct IngredientDetailView: View {
                     HStack {
                         Text(ingredient.descriptions)
                         Spacer()
-                    }
+                    }.padding(.top)
                 }.padding(25)
                     .background(Color("background-blue"))
                     .clipShape(RoundedRectangle(cornerRadius: 20))

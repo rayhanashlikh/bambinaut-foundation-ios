@@ -60,6 +60,7 @@ struct IngredientsView: View {
     }
 
     // Define the filterData function here
+                (ingredient.max_months <= foodMonthData.max ?? Int.max)
 //    private func filterData(foodMonthData: FoodMonthRange) {
 //        print("Filtering ingredients...")
 //
