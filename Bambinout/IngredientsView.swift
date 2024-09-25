@@ -67,7 +67,7 @@ struct IngredientsView: View {
             }
         }
 
-        print("Filtered data count: \(ingredients.count)")
+//        print("Filtered data count: \(ingredients.count)")
         // Update UI if needed, but the state change should trigger it automatically
     }
 }
