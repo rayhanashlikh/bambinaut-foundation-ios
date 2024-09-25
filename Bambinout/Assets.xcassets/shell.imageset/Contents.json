@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Concha Azul Fofa PNG , Clipart De Conchas, Concha Azul, Concha Imagem PNG e PSD Para Download Gratuito.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -13,6 +13,7 @@
 		0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF32C94433000155C8A /* IngredientDetailView.swift */; };
 		0430EEF62C9445D300155C8A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0430EEF52C9445D300155C8A /* Storyboard.storyboard */; };
 		0430EEF82C947C7A00155C8A /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEF72C947C7A00155C8A /* Observables.swift */; };
+		044C2E782CA0F6A90019D217 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C2E772CA0F6A90019D217 /* SplashScreen.swift */; };
 		048775CE2C9D1E71006812C7 /* Bambinaut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 048775CC2C9D1E71006812C7 /* Bambinaut.xcdatamodeld */; };
 		048775D02C9D2007006812C7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048775CF2C9D2007006812C7 /* DataController.swift */; };
 		0487762F2C9D2A1F006812C7 /* Allergy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048776292C9D2A1F006812C7 /* Allergy+CoreDataClass.swift */; };
@@ -74,6 +75,7 @@
 		0430EEF32C94433000155C8A /* IngredientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailView.swift; sourceTree = "<group>"; };
 		0430EEF52C9445D300155C8A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0430EEF72C947C7A00155C8A /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
+		044C2E772CA0F6A90019D217 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		048775CD2C9D1E71006812C7 /* Bambinaut.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bambinaut.xcdatamodel; sourceTree = "<group>"; };
 		048775CF2C9D2007006812C7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Bambinout/DataController.swift; sourceTree = SOURCE_ROOT; };
 		048776292C9D2A1F006812C7 /* Allergy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -211,6 +213,7 @@
 				04A17CE92C9933A40067E6F1 /* ChangePasswordView.swift */,
 				04A17CEB2C993E230067E6F1 /* InputAllergiesView.swift */,
 				04B088CF2C9A6D9C00047A37 /* SearchDataModel.swift */,
+				044C2E772CA0F6A90019D217 /* SplashScreen.swift */,
 			);
 			path = Bambinout;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				048776322C9D2A1F006812C7 /* Ingredients+CoreDataProperties.swift in Sources */,
 				048776332C9D2A1F006812C7 /* Nutritions+CoreDataClass.swift in Sources */,
 				048776342C9D2A1F006812C7 /* Nutritions+CoreDataProperties.swift in Sources */,
+				044C2E782CA0F6A90019D217 /* SplashScreen.swift in Sources */,
 				0430EEF42C94433000155C8A /* IngredientDetailView.swift in Sources */,
 				0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */,
 				04B0887A2C92A7DF00047A37 /* BambinoutApp.swift in Sources */,
