@@ -46,7 +46,7 @@ class IngredientsCollectionsviewCell: UICollectionViewCell {
 //        return button
 //    }()
     
-    public func configure (with data: IngredientData) {
+    public func configure (with data: Ingredient) {
         self.myImageView.image = UIImage(named: data.imageName)
         self.button.setTitle(data.name, for:.normal)
         self.setupUI()

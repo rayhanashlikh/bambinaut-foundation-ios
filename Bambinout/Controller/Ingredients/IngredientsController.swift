@@ -20,8 +20,8 @@ class IngredientsController: UIViewController {
     }
     private let margin: CGFloat = 16
     
-    private var data: [IngredientData] = []
-    private var filteredData: [IngredientData] = []
+    private var data: [Ingredient] = []
+    private var filteredData: [Ingredient] = []
     //private var babyData: BabyData;
     
     private lazy var ingredientView: UICollectionView = {
@@ -40,8 +40,9 @@ class IngredientsController: UIViewController {
     }()
     
     // Custom initializer
-    init(foodMonthData: FoodMonthRange) {
+    init(foodMonthData: FoodMonthRange, ingredients: [Ingredient]) {
         self.foodMonthData = foodMonthData
+        self.data = ingredients
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,7 +55,7 @@ class IngredientsController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         
-        data = getDummyIngredients(n: 5)
+//        data = getDummyIngredients(n: 5)
        // filterData(babyData: babyData)
         
         filteredData = data
@@ -102,14 +103,14 @@ class IngredientsController: UIViewController {
         if foodMonthData.min == nil && foodMonthData.max == nil {
             
             if !name.isEmpty {
-                filteredData = getDummyIngredients(n: 5).filter { ingredient in
+                filteredData = data.filter { ingredient in
                     (name.isEmpty || ingredient.name.lowercased().contains(name.lowercased()))
                 }
             }else {
-                filteredData = getDummyIngredients(n: 5) // or your full data set
+                filteredData = data // or your full data set
             }
         } else {
-            filteredData = getDummyIngredients(n: 5).filter { ingredient in
+            filteredData = data.filter { ingredient in
                 (ingredient.min_months >= foodMonthData.min ?? 0) &&
                 (ingredient.max_months <= foodMonthData.max ?? Int.max) &&
                 (name.isEmpty || ingredient.name.lowercased().contains(name.lowercased()))
@@ -160,13 +161,13 @@ extension IngredientsController: UICollectionViewDelegate, UICollectionViewDataS
             let ingredient = self.filteredData[indexPath.row]
             
             // Create the SwiftUI view with the selected ingredient
-//            let detailView = IngredientDetailView(ingredient: ingredient)
+            let detailView = IngredientDetailView(ingredient: ingredient)
             
-            // Create a UIHostingController with the SwiftUI view
-//            let hostingController = UIHostingController(rootView: detailView)
-//            
-//            // Push the hostingController onto the navigation stack
-//            self.navigationController?.pushViewController(hostingController, animated: true)
+//             Create a UIHostingController with the SwiftUI view
+            let hostingController = UIHostingController(rootView: detailView)
+            
+            // Push the hostingController onto the navigation stack
+            self.navigationController?.pushViewController(hostingController, animated: true)
         }
 }
 

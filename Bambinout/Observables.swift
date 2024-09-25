@@ -5,6 +5,11 @@ class SearchDataModel: ObservableObject {
     @Published var searchText: String = ""
 }
 
+class IngredientDataModel: ObservableObject {
+    @Published var searchText: String = ""
+    @Published var ingredients: [Ingredient] = []
+}
+
 class RecommendationDataModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var data: [Ingredient] = []

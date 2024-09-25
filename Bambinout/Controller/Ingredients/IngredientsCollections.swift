@@ -10,9 +10,11 @@ import SwiftUI
 struct IngredientsCollections: UIViewControllerRepresentable {
     @Binding var search: String
     @Binding var foodMonthData: FoodMonthRange
+    @Binding var ingredients: [Ingredient]
     
     func makeUIViewController(context: Context) -> IngredientsController {
-        return IngredientsController(foodMonthData: foodMonthData)
+        print("ingredient: \(ingredients.count)")
+        return IngredientsController(foodMonthData: foodMonthData, ingredients: ingredients)
     }
 
     func updateUIViewController(_ uiViewController: IngredientsController, context: Context) {
