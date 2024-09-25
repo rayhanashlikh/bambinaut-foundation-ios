@@ -29,9 +29,17 @@ struct WeightInfoView: View {
         BabyWeightDataModel(gender: 0, age: 6, weight: "6.4 - 8.8 kg"),
         BabyWeightDataModel(gender: 0, age: 7, weight: "6.7 - 9.2 kg"),
         BabyWeightDataModel(gender: 0, age: 8, weight: "6.9 - 9.6 kg"),
+        BabyWeightDataModel(gender: 0, age: 9, weight: "7.1 - 9.9 kg"),
+        BabyWeightDataModel(gender: 0, age: 10, weight: "7.4 - 10.2 kg"),
+        BabyWeightDataModel(gender: 0, age: 11, weight: "7.6 - 10.5 kg"),
+        BabyWeightDataModel(gender: 0, age: 12, weight: "7.7 - 10.8 kg"),
         BabyWeightDataModel(gender: 1, age: 6, weight: "5.7 - 8.2 kg"),
         BabyWeightDataModel(gender: 1, age: 7, weight: "6.0 - 8.6 kg"),
         BabyWeightDataModel(gender: 1, age: 8, weight: "6.3 - 9.0 kg"),
+        BabyWeightDataModel(gender: 1, age: 9, weight: "6.5 - 9.3 kg"),
+        BabyWeightDataModel(gender: 1, age: 10, weight: "6.7 - 9.6 kg"),
+        BabyWeightDataModel(gender: 1, age: 11, weight: "6.9 - 9.9 kg"),
+        BabyWeightDataModel(gender: 1, age: 12, weight: "7.0 - 10.1 kg"),
     ]
     
     // Filter data berdasarkan gender
@@ -65,9 +73,9 @@ struct WeightInfoView: View {
                         Color.white
                     )
                 }
+                .padding([.horizontal])
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
-                .padding([.horizontal])
                 
                 Spacer()
             }
