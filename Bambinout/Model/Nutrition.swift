@@ -12,6 +12,7 @@ import SwiftData
 class Nutrition: Identifiable {
     var id: UUID
     var name: String
+    
     var ingredients: [Ingredient]
     
     init(name: String, ingredients: [Ingredient]) {

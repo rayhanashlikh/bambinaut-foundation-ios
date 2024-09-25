@@ -1,10 +1,13 @@
 import SwiftUI
-
+import SwiftData
 
 struct IngredientsView: View {
-    @StateObject private var searchDataModel = SearchDataModel()
+    @Environment(\.modelContext) private var context
+    @StateObject private var ingredientDataModel = IngredientDataModel()
     @State private var selectedCategory = FoodMonthRange(title: "All", min: nil, max: nil)
-    @State private var ingredients: [IngredientData] = [] // Your ingredients array
+    @Query var ingredients: [Ingredient] = [] // Your ingredients array
+//    var filterdata : [Ingredient] = []
+    
     let categories = getFoodMonthCategories()
 
     var body: some View {
@@ -21,11 +24,11 @@ struct IngredientsView: View {
                     .padding(.horizontal)
                     .padding(.top, 15)
                     .padding(.bottom, 10)
-                    .onChange(of: selectedCategory) { newValue in
-                        filterData(foodMonthData: newValue)
-                    }
+//                    .onChange(of: selectedCategory) { newValue in
+//          filterData(foodMonthData: newValue)
+//                    }
 
-                    IngredientsCollections(search: $searchDataModel.searchText, foodMonthData: $selectedCategory)
+                    IngredientsCollections(search: $ingredientDataModel.searchText, foodMonthData: $selectedCategory, ingredients: $ingredientDataModel.ingredients)
                 }
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
@@ -47,29 +50,32 @@ struct IngredientsView: View {
                                     .foregroundColor(.black)
                             }
                         }
-                        .searchable(text: $searchDataModel.searchText)
+                        .searchable(text: $ingredientDataModel.searchText)
                     }
                 }
-            }.environmentObject(searchDataModel)
+            }
+        }.onAppear {
+            ingredientDataModel.ingredients = ingredients
         }
     }
 
     // Define the filterData function here
-    private func filterData(foodMonthData: FoodMonthRange) {
-        print("Filtering ingredients...")
-
-        if foodMonthData.min == nil && foodMonthData.max == nil {
-            ingredients = getDummyIngredients(n: 5) // Load all ingredients
-        } else {
-            ingredients = getDummyIngredients(n: 5).filter { ingredient in
-                (ingredient.min_months >= foodMonthData.min ?? 0) &&
-                (ingredient.max_months <= foodMonthData.max ?? Int.max)
-            }
-        }
-
-        print("Filtered data count: \(ingredients.count)")
-        // Update UI if needed, but the state change should trigger it automatically
-    }
+               // (ingredient.max_months <= foodMonthData.max ?? Int.max)
+//    private func filterData(foodMonthData: FoodMonthRange) {
+//        print("Filtering ingredients...")
+//
+//        if foodMonthData.min == nil && foodMonthData.max == nil {
+//            ingredients  // Load all ingredients
+//        } else {
+//            ingredients.filter { ingredient in
+//                (ingredient.min_months >= foodMonthData.min ?? 0) &&
+//                (ingredient.max_months <= foodMonthData.max ?? Int.max)
+//            }
+//        }
+//
+//        print("Filtered data count: \(ingredients.count)")
+//        // Update UI if needed, but the state change should trigger it automatically
+//    }
 }
 
 

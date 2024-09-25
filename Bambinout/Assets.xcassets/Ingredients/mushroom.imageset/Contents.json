@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "รูปภาพประกอบเห็ด PNG , เห็ด, เห็ดหอมวาดด้วยมือ, ภาพประกอบภาพ PNG และ PSD สำหรับดาวน์โหลดฟรี.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

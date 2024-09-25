@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Plump PNG Picture, Fully Plump Prawn Pattern, Good Looking, Nutrition, Nutrition Clipart PNG Image For Free Download.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
