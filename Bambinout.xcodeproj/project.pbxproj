@@ -83,12 +83,6 @@
 		044C2E772CA0F6A90019D217 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		048775CD2C9D1E71006812C7 /* Bambinaut.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bambinaut.xcdatamodel; sourceTree = "<group>"; };
 		048775CF2C9D2007006812C7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Bambinout/DataController.swift; sourceTree = SOURCE_ROOT; };
-		048776292C9D2A1F006812C7 /* Allergy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0487762A2C9D2A1F006812C7 /* Allergy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergy+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		0487762B2C9D2A1F006812C7 /* Ingredients+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0487762C2C9D2A1F006812C7 /* Ingredients+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		0487762D2C9D2A1F006812C7 /* Nutritions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nutritions+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0487762E2C9D2A1F006812C7 /* Nutritions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nutritions+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		048776352C9D2C22006812C7 /* Nutritions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Nutritions.plist; sourceTree = "<group>"; };
 		04A17CE32C9933570067E6F1 /* BabyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyProfileView.swift; sourceTree = "<group>"; };
 		04A17CE52C9933710067E6F1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
