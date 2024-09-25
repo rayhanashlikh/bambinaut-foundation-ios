@@ -1,15 +1,18 @@
-//
-//  IngredientsCollectionViewCell.swift
-//  bambinaut-foundation-ios
-//
-//  Created by MacBook Air on 13/09/24.
-//
-
 import UIKit
+import SwiftUI
 
 class ForYouCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "IngredientCollectionViewCell"
+    
+    // Create a container view for the background color
+    private let backgroundContainer: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.clipsToBounds = true
+        view.backgroundColor = .white // Set your desired background color
+        return view
+    }()
     
     private let myImageView: UIImageView = {
         let iv = UIImageView()
@@ -17,61 +20,66 @@ class ForYouCollectionViewCell: UICollectionViewCell {
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .white
         iv.clipsToBounds = true
+        iv.layer.cornerRadius = 16
         return iv
     }()
-        
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.numberOfLines = 1
-        return label
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(named: "button-color")
+        button.isUserInteractionEnabled = false
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 16
+        return button
     }()
     
-//    private let button: UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = UIColor(hexString: AppColors.peach)
-//        return button
-//    }()
-    
-    public func configure (with data: IngredientData) {
+    public func configure (with data: Ingredient) {
         self.myImageView.image = UIImage(named: data.imageName)
-        self.titleLabel.text = data.name
+        self.button.setTitle(data.name, for:.normal)
         self.setupUI()
     }
     
     private func setupUI() {
         self.backgroundColor = UIColor(hexString: AppColors.lightBlue)
-        self.myImageView.layer.cornerRadius = 16
-//        self.contentView.layer.masksToBounds = true
         self.contentView.clipsToBounds = true
-//        self.clipsToBounds = true
-//        self.contentView.
-//        self.contentView.layer.cornerRadius = 20.0
-//        self.contentView.layer.borderWidth = 1.0
+
+        // Add the background container
+        addSubview(backgroundContainer)
+
+        // Add other subviews
+        backgroundContainer.addSubview(myImageView)
+        addSubview(button)
         
-        self.addSubview(myImageView)
-        self.addSubview(titleLabel)
-        
+        backgroundContainer.translatesAutoresizingMaskIntoConstraints = false
         myImageView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            myImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            myImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-            myImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            myImageView.heightAnchor.constraint(equalTo: myImageView.widthAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 12),
-                    titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor), // Center titleLabel horizontally
-                    titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
-                    titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -8),
+            // Position the background container
+            backgroundContainer.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            backgroundContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            backgroundContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            backgroundContainer.heightAnchor.constraint(equalTo: backgroundContainer.widthAnchor),
+
+            // Position the image view within the container with 5px padding
+            myImageView.topAnchor.constraint(equalTo: backgroundContainer.topAnchor, constant: 10),
+            myImageView.leadingAnchor.constraint(equalTo: backgroundContainer.leadingAnchor, constant: 10),
+            myImageView.trailingAnchor.constraint(equalTo: backgroundContainer.trailingAnchor, constant: -10),
+            myImageView.bottomAnchor.constraint(equalTo: backgroundContainer.bottomAnchor, constant: -10),
+                        
+            // Position the button as before
+            button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -16),
+            button.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 8),
+            button.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -8),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -7)
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.myImageView.image = nil
-        self.titleLabel.text = ""
+        self.button.titleLabel?.text = ""
     }
 }

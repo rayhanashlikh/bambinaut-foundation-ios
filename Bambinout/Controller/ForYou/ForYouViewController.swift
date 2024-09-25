@@ -1,24 +1,28 @@
 
 import UIKit
 import SwiftUI
+import SwiftData
 
 class ForYouViewController: UIViewController {
+    
     private var searchText: String = "" {
         didSet {
             filterData(name: searchText)
         }
     }
-    private let margin: CGFloat = 16
     
-    private var data: [IngredientData] = []
-    private var filteredData: [IngredientData] = []
-    private var babyData: BabyData;
+    @Published private var data: [Ingredient] {
+        didSet {
+            forYouView.reloadData()
+        }
+    }
+    private var filteredData: [Ingredient] = []
     
-    private lazy var forYouView: UICollectionView = {
+    private var forYouView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: margin, left:  margin, bottom:  margin, right:  margin)
+        layout.sectionInset = UIEdgeInsets(top: 16, left:  16, bottom:  16, right:  16)
         
         let forYouView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         forYouView.backgroundColor = .systemBackground
@@ -30,8 +34,9 @@ class ForYouViewController: UIViewController {
     }()
     
     // Custom initializer
-    init(babyData: BabyData) {
-        self.babyData = babyData
+    init(data: [Ingredient], search: String) {
+        self.data = data
+        self.searchText = search
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,11 +49,7 @@ class ForYouViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         
-        data = getDummyIngredients(n: 5)
-        filterData(babyData: babyData)
-        
         filteredData = data
-        
         
         self.forYouView.dataSource = self
         self.forYouView.delegate = self
@@ -69,7 +70,9 @@ class ForYouViewController: UIViewController {
     }
     
     func filterData(name: String) {
-    if name.isEmpty {
+//        print("filter: \(name) | count: \(data.count)")
+//        print("\(data.count)")
+        if name.isEmpty {
             filteredData = data
         } else {
             filteredData = data.filter { $0.name.lowercased().contains(name.lowercased()) }
@@ -77,45 +80,18 @@ class ForYouViewController: UIViewController {
         forYouView.reloadData()
     }
     
-    func filterData(babyData: BabyData) {
-        //filter by baby age
-        print("filter bayi")
-        
-        print(babyData)
-        print(babyData.getWeightStatus())
-        
-        data = data.filter {
-            !babyData.allergy_ids.contains($0.allergy_id ?? 0) &&
-            babyData.getAgeMonth() ?? 0 >= $0.min_months &&
-            babyData.getAgeMonth() ?? 0 <= $0.max_months &&
-            (babyData.getWeightStatus() != 0 ? $0.for_weight_status == babyData.getWeightStatus() : true)
-            
-//            (babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
-//            &&
-//            babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max) ?
-//            true : babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min ?
-//            $0.for_weight_status == -1 : babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).max ? $0.for_weight_status == 1 : false
-//            ( babyData.latest_weight >= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min &&
-//              babyData.latest_weight <= getBabyOptimalWeightRange(age: babyData.getAgeMonth() ?? 0, gender: babyData.gender).min
-//            ) {
-//                return true
-//            }
-        }
-        print(data.count)
-        
-        
-        forYouView.reloadData()
-        
-    }
-    
     func updateSearchText(_ searchText: String) {
         self.searchText = searchText
+    }
+    
+    func updateData(_ data: [Ingredient]) {
+        self.data = data
     }
 }
 
 extension ForYouViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.filteredData.count
+        return self.filteredData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -156,7 +132,7 @@ extension ForYouViewController: UICollectionViewDelegateFlowLayout {
         // Calculate the width of each item
         let totalSpacing = (collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing * 1 // 1 space between items
         let contentWidth = collectionView.bounds.width
-        let itemWidth = (contentWidth - (margin * 2) - totalSpacing) / 2.0
+        let itemWidth = (contentWidth - (16 * 2) - totalSpacing) / 2.0
         let itemHeight = itemWidth + 40
         // Set a height for the items, or calculate dynamically if needed
         

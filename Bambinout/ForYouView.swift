@@ -6,18 +6,36 @@
 //
 
 import SwiftUI
+import SwiftData
 struct ForYouView: View {
-    @StateObject private var searchDataModel = SearchDataModel()
-    @State var babyData: BabyData? = getDummyBaby()
-//    @State var babyData: BabyData? = nil
+    @Environment(\.modelContext) private var context
+    @StateObject private var recommended = RecommendationDataModel()
+    @Query let babyData: [Baby]
+    @Query let ingredients: [Ingredient]
+    
+    func filterData(baby: Baby) {
+        let ageMonth: Int = baby.getAgeMonth() ?? 0
+        let weightStatus = baby.getWeightStatus()
+        print("haha\n\(ingredients.count)\n\(ageMonth)\n\(weightStatus)")
+        let predicate = #Predicate<Ingredient> { ingredient in
+            (ingredient.allergy == nil || ingredient.allergy!.status == false) &&
+            ingredient.min_months <= ageMonth &&
+            ingredient.max_months >= ageMonth &&
+            (ingredient.for_weight_status == 0 ? true : ingredient.for_weight_status == weightStatus)
+        }
+        
+        do {
+            try recommended.data = ingredients.filter(predicate)
+            print("recommended: \(recommended.data.count)")
+        } catch {
+            print("Error filter")
+        }
+    }
     var body: some View {
         NavigationStack {
            VStack {
-               if let unwrappedBabyData = babyData {
-                   ForYouCollections(search: $searchDataModel.searchText, babyData: Binding<BabyData>(
-                       get: { unwrappedBabyData },
-                       set: { babyData = $0 }
-                   ))
+               if babyData.first != nil {
+                   ForYouCollections(data: $recommended.data, search: recommended.searchText)
                } else {
                    VStack {
                        NavigationLink(destination: BabyProfileView()) {
@@ -41,15 +59,35 @@ struct ForYouView: View {
            .navigationTitle("For You")
            .toolbar() {
                ToolbarItem(placement: .topBarTrailing) {
-                   NavigationLink(destination: ProfileView()) {
-                       Image(systemName: "person.circle.fill")
-                           .resizable()
-                           .frame(width: 40, height: 40)
-                           .foregroundColor(.black)
+                   NavigationLink(destination: BabyProfileView(), isActive: $recommended.isShowNav) {
+                       Button(action: {
+                           recommended.isShowNav = true
+                       }, label: {
+                           Image(systemName: "person.circle.fill")
+                               .resizable()
+                               .frame(width: 40, height: 40)
+                               .foregroundColor(.black)
+                       })
+                       
                    }
                }
            }
-        }.searchable(text: $searchDataModel.searchText)
+        }.searchable(text: $recommended.searchText)
+            .onDisappear {
+                // Reset or refresh any state if necessary
+                recommended.data = [] // Clear or reset data if needed
+                print("ForYouView disappeared")
+            }
+        .onReceive(recommended.$isShowNav, perform: { _ in
+            if (babyData.first != nil) {
+                filterData(baby: babyData.first!)
+            }
+        })
+        .onAppear(perform: {
+            if (babyData.first != nil) {
+                filterData(baby: babyData.first!)
+            }
+        })
     }
 }
 
