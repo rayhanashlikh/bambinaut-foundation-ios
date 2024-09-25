@@ -1,9 +1,13 @@
 import SwiftUI
+import SwiftData
 
 struct InputWeightView: View {
     @Environment(\.dismiss) var dismiss // To dismiss the view
+    @Environment(\.modelContext) var modelContext
+    
     @State var weight: String = ""
     @State private var birthDate = Date()
+    @State private var showConfirmation = false
     
     init() {
         let appearance = UINavigationBarAppearance()
@@ -38,7 +42,7 @@ struct InputWeightView: View {
                             Spacer()
                             Text("kg") // Petunjuk satuan di sebelah kanan TextField
                                 .foregroundColor(.gray)
-                            }
+                        }
                     }
                 } header: {
                     Text("Input weight")
@@ -60,7 +64,7 @@ struct InputWeightView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
-                    print("Done button clicked, weight: \(weight)")
+                    showConfirmation = true
                 }) {
                     Text("Done")
                 }
@@ -68,6 +72,26 @@ struct InputWeightView: View {
         }
         .navigationTitle("Input Baby Weight")
         .navigationBarBackButtonHidden(true)
+        .alert("Confirmation", isPresented: $showConfirmation) {
+            Button("Save") {
+                saveBabyWeight() // Simpan data ketika user menekan "Save"
+            }
+            Button("Cancel", role: .cancel) {
+                // Do nothing, alert dismissed
+            }
+        } message: {
+            Text("Are you sure you want to input this data?")
+        }
+    }
+    
+    private func saveBabyWeight() {
+        if let weightValue = Double(weight) {
+            // Save BabyWeight
+            BabyWeight.inputBabyWeight(date: birthDate, weight: weightValue, modelContext: modelContext)
+            dismiss() // Dismiss the view after saving
+        } else {
+            Text("Invalid weight input")
+        }
     }
 }
 

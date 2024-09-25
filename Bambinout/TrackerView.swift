@@ -1,17 +1,26 @@
 import SwiftUI
+import SwiftData
 
 struct TrackerView: View {
     @State private var presented = false
     @State private var tracker = false
-    @State private var selectedMonth: String = "January"
+    @State var selectedMonth: String = "September"
     @State private var month: Int = 8
+    @State private var latestDate: Date?
     
     let babyData = getDummyBaby()
     
-    private static let monthNames: [String: Int] = [
+    @Query var baby: [Baby]
+    @Query var babyWeight: [BabyWeight]
+    
+    static let monthNames: [String: Int] = [
         "January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6,
         "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12
     ]
+    
+    var filteredBabyWeight: [BabyWeight] {
+        return babyWeight.filter { Calendar.current.component(.month, from: $0.date) == month }
+    }
     
     var body: some View {
         NavigationStack {
@@ -31,49 +40,61 @@ struct TrackerView: View {
                         Spacer()
                         
                         ScrollView {
-                            HStack {
-                                Text("Last Input: \(babyData.formattedLatestWeightDate())")
-                                    .padding([.leading, .trailing])
-                                    .foregroundColor(Color(.tertiaryLabel))
-                                Spacer()
-                            }
-                            
-                            MonthPickerView(selectedMonth: $selectedMonth)
-                            GrowthChartView(month: $month, data: [
-                                BabyGrowth(day: 7, month: 8, year: 2024, weight: 9),
-                                BabyGrowth(day: 13, month: 8, year: 2024, weight: 11),
-                                BabyGrowth(day: 19, month: 8, year: 2024, weight: 15),
-                                BabyGrowth(day: 25, month: 8, year: 2024, weight: 20),
-                                BabyGrowth(day: 30, month: 8, year: 2024, weight: 15),
-                                BabyGrowth(day: 1, month: 9, year: 2024, weight: 20),
-                                BabyGrowth(day: 10, month: 9, year: 2024, weight: 17),
-                                BabyGrowth(day: 15, month: 9, year: 2024, weight: 18),
-                            ])
-                            
-                            HStack {
-                                Text("Your baby, \(babyData.name) is currently: ")
-                                    .padding([.leading, .trailing])
-                                Spacer()
-                            }
-                            
-                            babyStatus(status: babyData.getWeightStatus())
-                            
-                            HStack {
-                                NavigationLink(destination: WeightInfoView().toolbar(.hidden, for: .tabBar)) {
-                                    HStack {
-                                        Spacer()
-                                        Image(systemName: "info.circle")
-                                            .foregroundStyle(Color.black)
-                                        Text("More info")
-                                            .foregroundStyle(Color.black)
-                                        Spacer()
-                                    }
-                                    .padding()
-                                    .background(Color("button-color"))
-                                    .cornerRadius(10)
-                                    .shadow(radius: 5, y: 9)
+                            if baby.first != nil {
+                                HStack {
+                                    Text("Last Input: \(babyWeight.last?.formattedLatestWeightDate() ?? "No data")")
+                                        .padding([.leading, .trailing])
+                                        .foregroundColor(Color(.tertiaryLabel))
+                                    Spacer()
                                 }
-                                .padding([.leading, .trailing])
+                                
+                                MonthPickerView(selectedMonth: $selectedMonth)
+                                GrowthChartView(month: $month, data: filteredBabyWeight)
+                                
+                                HStack {
+                                    Text("Your baby, \(baby.first?.name ?? "") is currently: ")
+                                        .padding([.leading, .trailing])
+                                    Spacer()
+                                }
+                                
+                                babyStatus(status: baby.first?.getWeightStatus() ?? 3)
+                                
+                                HStack {
+                                    NavigationLink(destination: WeightInfoView().toolbar(.hidden, for: .tabBar)) {
+                                        HStack {
+                                            Spacer()
+                                            Image(systemName: "info.circle")
+                                                .foregroundStyle(Color.black)
+                                            Text("More info")
+                                                .foregroundStyle(Color.black)
+                                            Spacer()
+                                        }
+                                        .padding()
+                                        .background(Color("button-color"))
+                                        .cornerRadius(10)
+                                        .shadow(radius: 5, y: 9)
+                                    }
+                                    .padding([.leading, .trailing, .bottom])
+                                    Spacer()
+                                }
+                            } else {
+                                VStack {
+                                    NavigationLink(destination: BabyProfileView().toolbar(.hidden, for: .tabBar)) {
+                                        HStack {
+                                            Text("Go to baby profile")
+                                                .font(.headline)
+                                                .frame(maxWidth: .infinity)
+                                                .padding()
+                                                .background(Color.yellow)
+                                                .cornerRadius(8)
+                                        }
+                                    }
+                                    HStack {
+                                        Image(systemName: "info.circle")
+                                        Text("Please fill your baby’s profile to get your baby growth and weight tracker").font(.caption).multilineTextAlignment(.leading)
+                                        Spacer()
+                                    }.foregroundColor(.gray)
+                                }.padding(.horizontal, 20)
                             }
                         }
                         .scrollBounceBehavior(.basedOnSize, axes: [.vertical])
@@ -100,6 +121,13 @@ struct TrackerView: View {
             .onChange(of: selectedMonth, initial: false) { _, newValue in
                 updateMonthFromSelectedMonth(newValue: newValue)
             }
+            .onAppear {
+                latestDate = babyWeight.last?.date ?? Date.now
+                let extractedLatestDate = extractDayMonthYearFromDate(date: latestDate ?? Date.now)
+                month = extractedLatestDate.month
+                let monthName = monthName(from: month)
+                updateMonthFromSelectedMonth(newValue: monthName)
+            }
         }
     }
     
@@ -124,7 +152,7 @@ struct TrackerView: View {
             statusText = "Overweight"
             textColor = Color("red-text")
         default:
-            statusText = ""
+            statusText = "No data"
             textColor = .black
         }
         
@@ -135,8 +163,36 @@ struct TrackerView: View {
             .underline()
             .padding()
     }
+    
+    func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        return formatter.string(from: date)
+    }
+    
+    func extractDayMonthYearFromDate(date: Date) -> (day: Int, month: Int, year: Int) {
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        
+        return (day, month, year)
+    }
+    
+    func monthName(from monthNumber: Int) -> String {
+        let dateFormatter = DateFormatter()
+        let months = dateFormatter.monthSymbols // Array of month names
+        
+        // Pastikan angka bulan valid (1 - 12)
+        guard monthNumber >= 1 && monthNumber <= 12 else {
+            return "Invalid month"
+        }
+        
+        return months?[monthNumber - 1] ?? "October" // -1 karena index array mulai dari 0
+    }
 }
 
 #Preview {
-    TrackerView()
+    TrackerView(selectedMonth: "October")
 }

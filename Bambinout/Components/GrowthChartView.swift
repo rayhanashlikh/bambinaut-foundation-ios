@@ -3,9 +3,9 @@ import Charts
 
 struct GrowthChartView: View {
     @Binding var month: Int
-    var data: [BabyGrowth]
+    var data: [BabyWeight]
     
-    var filteredData: [BabyGrowth] {
+    var filteredData: [BabyWeight] {
         return data.filter { Calendar.current.component(.month, from: $0.date) == month }
     }
     
@@ -105,18 +105,19 @@ struct BabyGrowth: Identifiable {
 }
 
 // Preview untuk menampilkan GrowthChartView
+// Preview untuk menampilkan GrowthChartView
 struct GrowthChartView_Previews: PreviewProvider {
     static var previews: some View {
         StatefulPreviewWrapper(8) { monthBinding in
             GrowthChartView(month: monthBinding, data: [
-                BabyGrowth(day: 7, month: 8, year: 2024, weight: 9),
-                BabyGrowth(day: 13, month: 8, year: 2024, weight: 11),
-                BabyGrowth(day: 20, month: 8, year: 2024, weight: 15),
-                BabyGrowth(day: 25, month: 8, year: 2024, weight: 20),
-                BabyGrowth(day: 30, month: 8, year: 2024, weight: 15),
-                BabyGrowth(day: 1, month: 9, year: 2024, weight: 20),
-                BabyGrowth(day: 10, month: 9, year: 2024, weight: 17),
-                BabyGrowth(day: 15, month: 9, year: 2024, weight: 18),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day: 7))!, weight: 9),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day: 13))!, weight: 11),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day: 20))!, weight: 15),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day: 25))!, weight: 20),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day: 30))!, weight: 15),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 9, day: 1))!, weight: 20),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 9, day: 10))!, weight: 17),
+                BabyWeight(date: Calendar.current.date(from: DateComponents(year: 2024, month: 9, day: 15))!, weight: 18),
             ])
         }
     }

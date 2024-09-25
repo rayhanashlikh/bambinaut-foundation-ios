@@ -18,7 +18,8 @@ struct BambinoutApp: App {
             Ingredient.self,
             Allergy.self,
             Nutrition.self,
-            Baby.self
+            Baby.self,
+            BabyWeight.self,
         ])
         
     }

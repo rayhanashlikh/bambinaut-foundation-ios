@@ -56,5 +56,12 @@ class Baby: Identifiable {
         }
     }
     
-
+    // Fungsi untuk memformat latest_weight_date
+    func formattedLatestWeightDate() -> String {
+        guard let date = latest_weight_date else { return "No Date" }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long // Format "11 August 2024"
+        return formatter.string(from: date)
+    }
 }

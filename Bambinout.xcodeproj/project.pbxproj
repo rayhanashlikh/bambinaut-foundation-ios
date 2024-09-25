@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0427A2BC2CA2F26300C62A41 /* BabyWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A2BB2CA2F26300C62A41 /* BabyWeight.swift */; };
 		0430EEF02C9441C400155C8A /* ForYouCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEED2C9441C400155C8A /* ForYouCollections.swift */; };
 		0430EEF12C9441C400155C8A /* ForYouCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */; };
 		0430EEF22C9441C400155C8A /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0430EEEF2C9441C400155C8A /* ForYouViewController.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0427A2BB2CA2F26300C62A41 /* BabyWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyWeight.swift; sourceTree = "<group>"; };
 		0430EEED2C9441C400155C8A /* ForYouCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollections.swift; sourceTree = "<group>"; };
 		0430EEEE2C9441C400155C8A /* ForYouCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouCollectionViewCell.swift; sourceTree = "<group>"; };
 		0430EEEF2C9441C400155C8A /* ForYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				04E27CB92CA1222500A62DAA /* Nutrition.swift */,
 				04E27CBB2CA1257F00A62DAA /* Baby.swift */,
 				04E27CBD2CA24A4E00A62DAA /* Seeds.swift */,
+				0427A2BB2CA2F26300C62A41 /* BabyWeight.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				04B088C82C94100800047A37 /* TabBarView.swift in Sources */,
 				04B088C62C940F6D00047A37 /* TrackerView.swift in Sources */,
 				04B088C42C940F4200047A37 /* ForYouView.swift in Sources */,
+				0427A2BC2CA2F26300C62A41 /* BabyWeight.swift in Sources */,
 				04B703FE2C9A8D8F0066042B /* GrowthChartView.swift in Sources */,
 				04B704042C9BCF270066042B /* WeightInfoView.swift in Sources */,
 				04B088D72C9A870400047A37 /* IngredientsController.swift in Sources */,
