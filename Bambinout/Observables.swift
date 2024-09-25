@@ -9,6 +9,7 @@ class RecommendationDataModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var data: [Ingredient] = []
     @Published var allergies: [Allergy] = []
+    @Published var isShowNav: Bool = false
 }
 
 class BabyDataModel: ObservableObject {

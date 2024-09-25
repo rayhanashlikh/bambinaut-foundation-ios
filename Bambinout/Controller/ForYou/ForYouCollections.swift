@@ -12,5 +12,6 @@ struct ForYouCollections: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: ForYouViewController, context: Context) {
         uiViewController.updateSearchText(search)
+        uiViewController.updateData(data)
     }
 }
