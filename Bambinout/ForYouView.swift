@@ -12,10 +12,12 @@ struct ForYouView: View {
     @StateObject private var recommended = RecommendationDataModel()
     @Query let babyData: [Baby]
     @Query let ingredients: [Ingredient]
+    @Query let babyWeight: [BabyWeight]
+    @State var babyLatestWeight: Double = 7
     
-    func filterData(baby: Baby) {
+    func filterData(baby: Baby, weight: Double) {
         let ageMonth: Int = baby.getAgeMonth() ?? 0
-        let weightStatus = baby.getWeightStatus()
+        let weightStatus = baby.getWeightStatus(latest_weight: weight)
         print("haha\n\(ingredients.count)\n\(ageMonth)\n\(weightStatus)")
         let predicate = #Predicate<Ingredient> { ingredient in
             (ingredient.allergy == nil || ingredient.allergy!.status == false) &&
@@ -66,8 +68,16 @@ struct ForYouView: View {
                    }.padding(.horizontal, 20)
                }
            }
-           .navigationTitle("For You")
+           .navigationBarTitleDisplayMode(.large)
            .toolbar() {
+               ToolbarItem(placement: .navigationBarLeading) {
+                   VStack {
+                       Spacer()
+                       Text("For You")
+                           .font(.largeTitle)
+                           .bold()
+                   }
+               }
                ToolbarItem(placement: .topBarTrailing) {
                    NavigationLink(destination: BabyProfileView(), isActive: $recommended.isShowNav) {
                        Button(action: {
@@ -75,7 +85,7 @@ struct ForYouView: View {
                        }, label: {
                            Image(systemName: "person.circle.fill")
                                .resizable()
-                               .frame(width: 40, height: 40)
+                               .frame(width: 33, height: 33)
                                .foregroundColor(.black)
                        })
                        
@@ -89,14 +99,19 @@ struct ForYouView: View {
                 print("ForYouView disappeared")
             }
         .onReceive(recommended.$isShowNav, perform: { _ in
+            babyLatestWeight = babyWeight.last?.weight ?? 7
+            
             if (babyData.first != nil) {
-                filterData(baby: babyData.first!)
+                filterData(baby: babyData.first!, weight: babyLatestWeight)
             }
         })
         .onAppear(perform: {
+            babyLatestWeight = babyWeight.last?.weight ?? 7
+            
             if (babyData.first != nil) {
-                filterData(baby: babyData.first!)
+                filterData(baby: babyData.first!, weight: babyLatestWeight)
             }
+            
         })
     }
 }

@@ -7,6 +7,7 @@ struct TrackerView: View {
     @State var selectedMonth: String = "September"
     @State private var month: Int = 8
     @State private var latestDate: Date?
+    @State private var latestWeight: Double?
     
     let babyData = getDummyBaby()
     
@@ -57,7 +58,7 @@ struct TrackerView: View {
                                     Spacer()
                                 }
                                 
-                                babyStatus(status: baby.first?.getWeightStatus() ?? 3)
+                                babyStatus(status: baby.first?.getWeightStatus(latest_weight: latestWeight ?? 7) ?? 3)
                                 
                                 HStack {
                                     NavigationLink(destination: WeightInfoView().toolbar(.hidden, for: .tabBar)) {
@@ -127,6 +128,7 @@ struct TrackerView: View {
                 month = extractedLatestDate.month
                 let monthName = monthName(from: month)
                 updateMonthFromSelectedMonth(newValue: monthName)
+                latestWeight = babyWeight.last?.weight ?? 7.0
             }
         }
     }

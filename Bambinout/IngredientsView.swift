@@ -34,7 +34,6 @@ struct IngredientsView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack {
-                            Spacer()
                             Text("Ingredients")
                                 .font(.largeTitle)
                                 .bold()
@@ -42,7 +41,6 @@ struct IngredientsView: View {
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         VStack {
-                            Spacer()
                             NavigationLink(destination: BabyProfileView()) {
                                 Image(systemName: "person.circle.fill")
                                     .resizable()

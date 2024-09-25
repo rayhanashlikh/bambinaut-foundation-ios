@@ -46,10 +46,10 @@ class Baby: Identifiable {
     
     //mendapatkan status berat badan bayi
     //-1 = underweight; 0 = normal; 1 = overweight
-    func getWeightStatus() -> Int {
-        if (self.latest_weight >= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).max) {
+    func getWeightStatus(latest_weight: Double) -> Int {
+        if (latest_weight >= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).max) {
             return 1
-        } else if (self.latest_weight <= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).min) {
+        } else if (latest_weight <= getBabyOptimalWeightRange(age: self.getAgeMonth() ?? 0, gender: self.gender).min) {
             return -1
         } else {
             return 0
