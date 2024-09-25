@@ -36,9 +36,7 @@ struct ContentView: View {
                     let allergy = ingredient.allergen != nil ? allergies.first(where: { $0.name == ingredient.allergen }) : nil
                     let associatedNutritions = nutritions.filter { nutrition in ingredient.nutritions.contains(nutrition.name) }
                     let ingredient = Ingredient(
-                        imageName: ingredient.name.lowercased().replacingOccurrences(of: " ", with: "_")
-                            .replacingOccurrences(of: ")", with: "_")
-                            .replacingOccurrences(of: "(", with: ""), // Example for imageName
+                        imageName: ingredient.imageName,
                         name: ingredient.name,
                         descriptions: ingredient.description,
                         allergy: allergy,
